@@ -3,7 +3,8 @@
 
 var dom = {
 	tbody: document.querySelector('#film_list tbody'),
-	filter_box: document.getElementById('filter_box')
+	filter_box: document.getElementById('filter_box'),
+	frames: []
 };
 
 AG.ajax({
@@ -12,13 +13,14 @@ AG.ajax({
 	data: {action: 'load'},
 	done: function(msg){
 		var data = JSON.parse(msg);
-		var len = data.length;
-		for(var x=0; x<len; x++){
-			films.add(new Film(data[x], x));
-			films.master.push(x);
-
-			films.working.push(x); //this line to be removed once a filter function works
-		}		
+		
+		films.master = data.films;
+		filters.master = data.filters;
+		
+		//these lines to be removed once proper filter functions work
+		films.working = data.films;
+		filters.working = data.filters;
+				
 		films.order();
 		films.build();
 		filters.order();
@@ -27,8 +29,6 @@ AG.ajax({
 });
 
 var films = {
-	data: [],
-	
 	master: [],
 	working: [],
 
@@ -38,30 +38,42 @@ var films = {
 		order: 'asc'
 	},	
 	
-	add: function(obj){
-		this.data[this.data.length] = obj;
-	},
 	build: function(){
 		dom.tbody.innerHTML = '';
-		filters.clear();
 		var len = films.working.length;
 		for(var x=0; x<len; x++){
-			var cur_film = films.data[films.working[x]];
-			dom.tbody.appendChild(cur_film.printRow());
-			filters.extract(cur_film);
+			dom.tbody.appendChild(films.printRow(films.working[x]));
 		}
 	},	
 	order: function(){
 		films.working.sort(function(a,b){
-			var res = (films.data[a].getProp(films.sort_by.field) > films.data[b].getProp(films.sort_by.field)) ? 1: -1;
+			var res = (a[films.sort_by.field] > b[films.sort_by.field]) ? 1: -1;
 			if(films.sort_by.order == 'desc'){ 
 				res = (res == 1) ? -1: 1; 
 			};
 			return res;
 		});
 	},	
+	printRow: function(film){
+		var row = document.createElement('tr');
+		
+		var cell1 = document.createElement('td');
+		var txt1 = document.createTextNode(film.year);
+		cell1.appendChild(txt1);
+		row.appendChild(cell1);
+		
+		var cell2 = document.createElement('td');
+		var txt2 = document.createTextNode(film.title);
+		cell2.appendChild(txt2);
+		row.appendChild(cell2);
+		
+		return row;
+	}
 };
 var filters = {
+	master: [],
+	working: [],
+	
 	list: {
 		category: [],
 		actors: [],
@@ -75,7 +87,10 @@ var filters = {
 		tech: []
 	},
 	selection: [211],
-	sort_by: 'name', //name || number
+	sort_by: {
+		field: 'name', // name | number
+		order: 'asc'
+	},
 	
 	apply: function(){
 		films.working = films.master;
@@ -88,118 +103,56 @@ var filters = {
 		}
 	},
 	build: function(){
-		for(key in this.list){
-			var frame = document.createElement('div');
-			frame.setAttribute('class', 'frame');
-			var h2 = document.createElement('h2');
-			var title = document.createTextNode(key);
-			h2.appendChild(title);
-			var div = document.createElement('div');			
-			for(fil in this.list[key]){
-				div.appendChild(this.list[key][fil].printButton());
+		var len = this.working.length;
+		for(var x=0; x<len; x++){
+			var cat_id = this.catId(this.working[x].category);
+			if(dom.frames[cat_id] === undefined){
+				dom.frames[cat_id] = this.printFrame(this.working[x].category);
+				dom.filter_box.appendChild(dom.frames[cat_id]);
 			}
-			frame.appendChild(h2);
-			frame.appendChild(div);
-			dom.filter_box.appendChild(frame);
+			dom.frames[cat_id].querySelector('div').appendChild(this.printButton(this.working[x], x));
 		}
 	},
-	clear: function(){
+	catId: function(name){
+		return name.toLowerCase()+'_frame';
 	},
-	extract: function(film){
-		for(key in this.list){			
-			var vals = film.getFilter(key);
-			if(vals){
-				var len = vals.length;
-				for(var x=0; x<len; x++){				
-					var counter = this.list[key].length;
-					var tester = false;
-					while(tester==false){
-						counter--;
-						if(counter<0){
-							var fidx = this.list[key].length;
-							this.list[key][fidx] = new Filter(vals[x].trim(), fidx);
-							this.list[key][fidx].add(idx);
-							tester = true;
-						}else{
-							tester = this.list[key][counter].compare(idx, vals[x].trim());
-						}
-					}
-				}
-			}
-		}
-	},
+	clear: function(){},
 	order: function(){
-		for(i in this.list){
-			switch(this.sort_by){
+		this.working.sort(function(a, b){
+			var res;
+			switch(filters.sort_by.field){
 				case 'name':
-					this.list[i].sort(function(a, b){
-						return (a.name > b.name) ? 1 : -1;
-					});
+					res = (a.name > b.name) ? 1 : -1;
 					break;
 				case 'number':
-					this.list[i].sort(function(a, b){
-						return a.films.length - b.films.length;
-					});
-					break;	
+					res = a.films.length - b.films.length;
+					break;
 			}
-		}
-	}
-};
-
-function Film(params, idx){
-	var p = params;
-	p.idx = idx;
-	
-	this.getFilter = function(filter){
-		if(p[filter]!=''){
-			return p[filter].split(', ');
-		}else{
-			return false;
-		}
-	};
-	this.getProp = function(prop){
-		return p[prop];
-	};
-	this.printRow = function(){
-		var row = document.createElement('tr');
-		
-		var cell1 = document.createElement('td');
-		var txt1 = document.createTextNode(p.year);
-		cell1.appendChild(txt1);
-		row.appendChild(cell1);
-		
-		var cell2 = document.createElement('td');
-		var txt2 = document.createTextNode(p.title);
-		cell2.appendChild(txt2);
-		row.appendChild(cell2);
-		
-		return row;
-	};
-}
-
-function Filter(name, idx){
-	this.name = name;
-	this.idx = idx;	
-	this.films = [];
-
-	this.add = function(idx){
-		this.films[this.films.length] = idx;
-	};
-	this.compare = function(idx, val){
-		if(val==this.name){
-			this.add(idx);
-			return true;
-		}else{
-			return false;
-		}
-	};
-	this.printButton = function(){
+			if(filters.sort_by.order == 'desc'){ 
+				res = (res > 0) ? -1: 1; 
+			}
+			return res;
+		});
+	},
+	printButton: function(fltr, idx){
 		var filter = document.createElement('span');
 		filter.setAttribute('class', 'filter_btn');
 		filter.setAttribute('data-idx', idx);
-		filter.setAttribute('data-val', this.films.length);
-		var txt = document.createTextNode(name);
+		filter.setAttribute('data-val', fltr.films.length);
+		var txt = document.createTextNode(fltr.name);
 		filter.appendChild(txt);
 		return filter;
-	};
-}
+	},
+	printFrame: function(name){
+		var frame = document.createElement('div');
+		frame.setAttribute('class', 'frame');
+		frame.setAttribute('id', this.catId(name));
+		var h2 = document.createElement('h2');
+		var title = document.createTextNode(name);
+		h2.appendChild(title);
+		var div = document.createElement('div');
+		frame.appendChild(h2);
+		frame.appendChild(div);
+		return frame;
+	}
+};

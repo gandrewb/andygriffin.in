@@ -24,7 +24,8 @@ function extractFilters($film, $idx){
 				while($test==false){ // Each existing filter looking for matches
 					$ct--;
 					if($ct<0){
-						$list['filters'][] = array('name' => $name, 'category' => $filter_props[$x], 'films' => array($idx));
+						$new_idx = sizeof($list['filters']);
+						$list['filters'][$new_idx] = array('name' => $name, 'category' => $filter_props[$x], 'films' => array($idx), 'idx' => $new_idx);
 						$test=true;
 					}else{
 						if($list['filters'][$ct]['name'] == $name && $list['filters'][$ct]['category'] == $filter_props[$x]){
@@ -61,7 +62,7 @@ function trimArray($a){
 
 switch($_REQUEST['action']){
 	case 'load':			
-		$res = $db->dq('SELECT * FROM movies');
+		$res = $db->dq('SELECT * FROM movies LIMIT 20');
 		$list = array(
 			'films' => array(),
 			'filters' => array(),
@@ -70,6 +71,7 @@ switch($_REQUEST['action']){
 		for($i=0; $i<$res_len; $i++){
 			$entry = trimArray($res[$i]);
 			$entry['sort_title'] = filterTitle($entry['title']);
+			$entry['idx'] = $i;
 			$list['films'][$i] = $entry;
 			extractFilters($res[$i], $i);
 		}
@@ -77,4 +79,12 @@ switch($_REQUEST['action']){
 		echo json_encode($list);
 		break;
 }
+
+/*
+echo $list['filters'][5]['name'];
+foreach($list['filters'][5]['films'] as $f){
+	echo $list['films'][$f]['title'];
+}
+*/
+
 ?>

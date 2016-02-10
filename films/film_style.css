@@ -1,24 +1,31 @@
+*, *:before, *:after{ box-sizing: border-box; }
+
 body{
 	font-family: 'Helvetica Neue', Helvetica, sans-serif;
 	font-weight: 200;
 	margin: 0;
-	padding: 0;
+	padding: 0;	
+	background-image: -webkit-linear-gradient(hsl(359, 51%, 57%) 0%, hsl(345, 38%, 40%) 100%);
+	background-size: 100vw 100vh;
+	background-attachment: fixed;
+	color: #eee;
 }
 h1, h2, h3, h4, h5, h6{
 	font-weight: 300;
 }
 
-#film_frame>section {
-	overflow: auto;
+.film_frame {
+	display: flex;
 }
-	#filters{
-		float: left;
+	.filters{
+		flex: 1;
 		width: 375px;
-		border-right: solid 1px hsl(220, 75%, 50%);
+		background-color: hsl(331, 37%, 28%);
 	}
 		#filter_box .frame{}		
 		#filter_box .frame>h2{
-			color: #444;
+			background-color: hsl(268, 42%, 14%);
+			border-bottom: solid 1px hsl(331, 37%, 28%);
 			font-size: .9em;
 			font-weight: 500;
 			text-transform: uppercase;
@@ -30,18 +37,14 @@ h1, h2, h3, h4, h5, h6{
 			max-height: 385px;
 			overflow: auto;
 			font-size: .8em;
-			border-style: solid;
-			border-color: hsl(220, 75%, 50%);
-			border-width: 1px 0 1px 0;
 			text-align: center;
 			padding: 0 .75em .75em 0;
 			-webkit-overflow-scrolling: touch;
 		}
 			.filter_btn{
 				display: inline-block;
-				padding: 0 .8em 0 .5em;
-				border: solid 1px hsl(220, 75%, 50%);
-				color: #444;
+				padding: .2em .8em .2em .5em;
+				background-color: hsla(268, 42%, 14%, .5);
 				margin: .75em .75em 0 .75em;
 				position: relative;
 				border-radius: .25em 0 0 .25em;
@@ -51,12 +54,10 @@ h1, h2, h3, h4, h5, h6{
 			.filter_btn::after{
 				content: attr(data-val);
 				display: inline-block;
+				background-color: hsl(268, 42%, 14%);
 				border-radius: 2em;
-				padding: 0 .35em;
-				margin: -1px -.8em -1px -.25em;
-				background-color: #fff;
-				color: #444;
-				border: solid 1px hsl(220, 75%, 50%);
+				padding: .19em .4em .23em;
+				margin: -.22em -.8em -.2em -.25em;
 				position: relative;
 				left: .8em;
 			}
@@ -64,18 +65,16 @@ h1, h2, h3, h4, h5, h6{
 				background-color: hsl(220, 75%, 50%);
 				color: #fff;
 			}
-	#film_list{
+	.film_list{
+		flex: 2;
 		border-spacing: 0;
-/* 		margin-left: 30%; */
-/* 		width: 70%; */
 	}
-		#film_list thead td{
-			background-color: hsl(220, 75%, 50%);
-			color: white;
+		.film_list thead td{
+			background-color: hsl(331, 37%, 28%);
 			font-size: 1.2em;
 			padding: .5em;
 		}
-		#film_list td{
+		.film_list td{
 			padding: .25em 0 .25em 1em;
 		}
 @media screen and (max-width:1024px){

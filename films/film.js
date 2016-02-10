@@ -1,7 +1,7 @@
 // each filter needs an additional property to track currently number of currently showing films for the badge
 
 var dom = {
-	tbody: document.querySelector('#film_list tbody'),
+	tbody: document.querySelector('.film_list tbody'),
 	filter_box: document.getElementById('filter_box'),
 	clear: document.getElementById('clear_filters'),
 	order: document.getElementById('order_filters'),

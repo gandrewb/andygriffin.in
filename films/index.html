@@ -10,60 +10,54 @@
 	<h1>Andy's Film Collection</h1>
 	<button id="clear_filters">Clear Filters</button>
 	<button id="order_filters">Change Order</button>
-	<div id="film_frame">
-		<nav>
-			<div id="tabs"></div>
-			<div id="search">
-				<input type="search" id="search_field"/>
-			</div>
-		</nav>
-		<section>
-			<aside id="filters">
-				<div id="filter_box">
-					<div class="frame" id="category_frame">
-						<h2>category</h2><div></div>
-					</div>
-					<div class="frame" id="tags_frame">
-						<h2>tags</h2><div></div>
-					</div>
-					<div class="frame" id="actors_frame">
-						<h2>actors</h2><div></div>
-					</div>
-					<div class="frame" id="composers_frame">
-						<h2>composers</h2><div></div>
-					</div>
-					<div class="frame" id="directors_frame">
-						<h2>directors</h2><div></div>
-					</div>
-					<div class="frame" id="genres_frame">
-						<h2>genres</h2><div></div>
-					</div>
-					<div class="frame" id="languages_frame">
-						<h2>languages</h2><div></div>
-					</div>
-					<div class="frame" id="media_frame">
-						<h2>media</h2><div></div>
-					</div>
-					<div class="frame" id="mpaa_frame">
-						<h2>MPAA</h2><div></div>
-					</div>
-					<div class="frame" id="shorts_frame">
-						<h2>shorts</h2><div></div>
-					</div>
-					<div class="frame" id="tech_frame">
-						<h2>tech</h2><div></div>
-					</div>
+	<input type="serach" id="search_field" />
+
+	<section class="film_frame">
+		<aside class="filters">
+			<div id="filter_box">
+				<div class="frame" id="category_frame">
+					<h2>category</h2><div></div>
 				</div>
-			</aside>
-			<table id="film_list">
-				<thead><tr>
-					<td data-sort="year">Year</td>
-					<td data-sort="sort_title">Title</td>
-				</tr></thead>
-				<tbody></tbody>
-			</table>
-		</section>
-	</div>
+				<div class="frame" id="tags_frame">
+					<h2>tags</h2><div></div>
+				</div>
+				<div class="frame" id="actors_frame">
+					<h2>actors</h2><div></div>
+				</div>
+				<div class="frame" id="composers_frame">
+					<h2>composers</h2><div></div>
+				</div>
+				<div class="frame" id="directors_frame">
+					<h2>directors</h2><div></div>
+				</div>
+				<div class="frame" id="genres_frame">
+					<h2>genres</h2><div></div>
+				</div>
+				<div class="frame" id="languages_frame">
+					<h2>languages</h2><div></div>
+				</div>
+				<div class="frame" id="media_frame">
+					<h2>media</h2><div></div>
+				</div>
+				<div class="frame" id="mpaa_frame">
+					<h2>MPAA</h2><div></div>
+				</div>
+				<div class="frame" id="shorts_frame">
+					<h2>shorts</h2><div></div>
+				</div>
+				<div class="frame" id="tech_frame">
+					<h2>tech</h2><div></div>
+				</div>
+			</div>
+		</aside>
+		<table class="film_list">
+			<thead><tr>
+				<td data-sort="year">Year</td>
+				<td data-sort="sort_title">Title</td>
+			</tr></thead>
+			<tbody></tbody>
+		</table>
+	</section>
 
 	<script src="../js/ag.js"></script>
 	<script src="film.js"></script>

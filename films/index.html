@@ -8,11 +8,13 @@
 <body>
 
 	<h1>Andy's Film Collection</h1>
+	<button id="clear_filters">Clear Filters</button>
+	<button id="order_filters">Change Order</button>
 	<div id="film_frame">
 		<nav>
 			<div id="tabs"></div>
 			<div id="search">
-				<input type="search"/>
+				<input type="search" id="search_field"/>
 			</div>
 		</nav>
 		<section>
@@ -45,6 +47,9 @@
 					<div class="frame" id="mpaa_frame">
 						<h2>MPAA</h2><div></div>
 					</div>
+					<div class="frame" id="shorts_frame">
+						<h2>shorts</h2><div></div>
+					</div>
 					<div class="frame" id="tech_frame">
 						<h2>tech</h2><div></div>
 					</div>
@@ -52,8 +57,8 @@
 			</aside>
 			<table id="film_list">
 				<thead><tr>
-					<td>Year</td>
-					<td>Title</td>
+					<td data-sort="year">Year</td>
+					<td data-sort="sort_title">Title</td>
 				</tr></thead>
 				<tbody></tbody>
 			</table>

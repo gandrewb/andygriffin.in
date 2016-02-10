@@ -35,6 +35,7 @@ h1, h2, h3, h4, h5, h6{
 			border-width: 1px 0 1px 0;
 			text-align: center;
 			padding: 0 .75em .75em 0;
+			-webkit-overflow-scrolling: touch;
 		}
 			.filter_btn{
 				display: inline-block;
@@ -77,3 +78,8 @@ h1, h2, h3, h4, h5, h6{
 		#film_list td{
 			padding: .25em 0 .25em 1em;
 		}
+@media screen and (max-width:1024px){
+	body{
+		font-weight:300;
+	}
+}

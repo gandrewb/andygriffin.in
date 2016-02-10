@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+	<title>Toolbox</title>
+</head>
+<body>
+
+	<section class="tab">
+		<div id="search_frame">
+			<input type="search" id="search">
+			<div id="search_results">
+			</div>
+		</div>
+		<div id="result_frame">
+			<form id="movie_form" action="db/movies.php" method="POST">
+				<input type="text" placeholder="title" name="Title">
+				<input type="text" placeholder="year" name="Year">
+				<input type="text" placeholder="category" name="Type">
+				<input type="text" placeholder="imdb" name="imdbID">
+				<input type="text" placeholder="genres" name="Genre">
+				<input type="text" placeholder="directors" name="Director">
+				<input type="text" placeholder="actors" name="Actors">			
+				<input type="text" placeholder="composers" name="Composers">
+				<input type="text" placeholder="poster" name="Poster">			
+				<input type="text" placeholder="media" name="Media">
+				<input type="text" placeholder="tech" name="Tech">			
+				<input type="text" placeholder="languages" name="Languages">
+				<input type="text" placeholder="length" name="Runtime">
+				<input type="text" placeholder="mpaa" name="Rated">
+				<input type="text" placeholder="stars" name="Stars">
+				<input type="text" placeholder="tags" name="Tags">
+				<input type="submit" name="submit" value=" Submit ">
+			</form>
+			<img id="movie_poster" src=""><br>
+			<a href="" id="imdb_link" target="_blank">View in IMDB</a>
+		</div>
+	</section>
+	
+	<script src="js/jquery.js"></script>	
+	<script src="js/main.js"></script>
+</body>
+</html>

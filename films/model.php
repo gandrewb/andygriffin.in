@@ -5,7 +5,7 @@ date_default_timezone_set('America/Los_Angeles');
 require_once('../db/db.php');
 $db = new Database();
 
-$filter_props = array('category', 'actors', 'composers', 'directors', 'genres', 'languages', 'media', 'mpaa', 'tags', 'tech');
+$filter_props = array('category', 'actors', 'composers', 'directors', 'genres', 'languages', 'media', 'mpaa', 'tags', 'tech', 'shorts');
 
 $how_many = 0;
 
@@ -25,11 +25,13 @@ function extractFilters($film, $idx){
 					$ct--;
 					if($ct<0){
 						$new_idx = sizeof($list['filters']);
-						$list['filters'][$new_idx] = array('name' => $name, 'category' => $filter_props[$x], 'films' => array($idx), 'idx' => $new_idx);
+						$list['filters'][$new_idx] = array('name' => $name, 'category' => $filter_props[$x], 'films' => array($idx), 'total' => 1, 'badge' => 1, 'idx' => $new_idx);
 						$test=true;
 					}else{
 						if($list['filters'][$ct]['name'] == $name && $list['filters'][$ct]['category'] == $filter_props[$x]){
 							$list['filters'][$ct]['films'][] = $idx;
+							$list['filters'][$ct]['total']++;
+							$list['filters'][$ct]['badge']++;
 							$test = true;
 						}
 					}
@@ -53,7 +55,7 @@ function trimArray($a){
 	global $filter_props;
 	$new_array = array();
 	foreach($a as $k => $v){
-		if(!is_int($k) && !in_array($k, $filter_props)){
+		if(!is_int($k)){
 			$new_array[$k] = $v;
 		}
 	}
@@ -62,7 +64,7 @@ function trimArray($a){
 
 switch($_REQUEST['action']){
 	case 'load':			
-		$res = $db->dq('SELECT * FROM movies LIMIT 20');
+		$res = $db->dq('SELECT * FROM movies');
 		$list = array(
 			'films' => array(),
 			'filters' => array(),

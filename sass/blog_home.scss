@@ -1,0 +1,45 @@
+@import 'includes/blog-base';
+
+main {
+	@include logo-align;
+	padding-top: 3em;
+}
+
+.blog_index {
+	margin: 2.5em 0 8em;
+	
+	.article_link {
+		padding: 1.5em 0 1.4em;
+		border-bottom: solid 1px #eee;
+		display: flex;
+		
+		&:last-of-type {
+			border-bottom: none;
+		}
+	}
+	time { 
+		display: inline-block;
+		width: 7.5em;
+		line-height: 2;
+		flex: 0 0 7.5em;
+		font-size: .75em;
+	}
+	
+	a {
+		text-decoration: none;
+		color: $hover-color;
+		
+		&:hover {
+			text-decoration: underline;
+		}
+		
+		&:after {
+			content: url('/imgs/arrow.svg');
+			display: inline-block;
+			width: 19px;
+			margin-left: .25em;
+			position: relative;
+			top: 1px;
+		}
+	}
+}

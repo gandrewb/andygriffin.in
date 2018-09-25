@@ -1,0 +1,31 @@
+*,
+*:after,
+*:before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+p {
+	line-height: 1.4;
+	margin-bottom: 1em;
+	max-width: 38em;
+	
+	a {
+		color: black;
+		
+		&:hover {
+			color: $hover-color;
+		}
+	}
+	
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+.content {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 0 $side-padding;
+	position: relative;
+}

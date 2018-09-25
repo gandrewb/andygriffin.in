@@ -1,3 +1,5 @@
 .DS_Store
 db
 films/add/db/db.php
+.sass-cache
+js/ag_lib

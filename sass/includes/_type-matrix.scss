@@ -1,0 +1,40 @@
+@import 'responsive';
+
+html {
+	font-size: 20px;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Barlow', 'Helvetica Neue', 'Helvetica', sans-serif;
+	font-weight: 400;
+}
+
+h1 {
+	font-size: 3.6rem;
+	letter-spacing: -.03em;
+}
+h2 {
+	font-size: 2.1em;
+	letter-spacing: -.02em;
+}
+h3 {
+	font-size: 2rem;
+	letter-spacing: -.02em;
+}
+
+.intro {
+	font-size: 1.2em;
+	font-weight: 300;
+	line-height: 1.5;
+}
+
+@include viewport(m){
+	html {
+		font-size: 18px;
+	}
+}
+
+@include viewport(s){
+	html {
+		font-size: 16px;
+	}
+}

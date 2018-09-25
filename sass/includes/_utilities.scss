@@ -1,0 +1,24 @@
+@mixin icon-classes(){
+	@each $network in $social-icons {
+		
+		$icon-path: $soc-icon-path + $network;
+		
+		.icon-#{$network} {
+			background-image: url( #{$icon-path + $soc-icon-suffix} );
+		
+			&:hover {
+				background-image: url(#{$icon-path + $soc-icon-hover-suffix});
+			}
+		}
+		
+	}
+}
+
+@mixin logo-align() {
+	margin-left: calc(40% - 110px);
+	margin-right: 8vw;
+	
+	@include viewport(s){
+		margin-left: 8vw;
+	}
+}

@@ -1,0 +1,36 @@
+.article_body {
+	
+	.flat_char{
+		font-size: .7em;
+		margin: 0 0 0 -.2em;
+	}
+	
+	.chicago_norshore{
+		float: left;
+		width: 35%;
+		margin: .5em 1.25em 0 0;
+	}
+	
+	.sketch_1,
+	.sketch_3 {
+		margin-right: 2%;
+	}
+	
+	.sketch_1,
+	.sketch_2 {
+		margin-bottom: 2%;
+	}
+	
+	.sketch_3,
+	.sketch_4 {
+		margin-top: 0
+	}
+	
+	.sketch_1,
+	.sketch_2,
+	.sketch_3,
+	.sketch_4{
+		float: left;
+		width: 49%;
+	}
+}

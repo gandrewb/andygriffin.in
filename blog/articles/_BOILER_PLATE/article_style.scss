@@ -1,0 +1,25 @@
+@import '../../src/scss/modules/settings';
+@import '../../src/ag_lib/scss/responsive';
+
+/*
+$article_images:(
+	article_illustration: (
+		l: (img:'imgs/article_illustration.jpg', w:220px, h:391px),
+		m: (img:'imgs/article_illustration.jpg', w:191px, h:339px),
+		s: (img:'imgs/article_illustration.jpg', w:135px, h:240px)
+	)
+);
+$image_map: map-merge($image_map, $article_images);
+*/
+
+
+.article_body {
+	
+/*
+	.illustration{
+		@include image(article_illustration, true);
+	}
+*/
+	
+	
+}

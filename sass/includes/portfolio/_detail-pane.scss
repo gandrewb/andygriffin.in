@@ -1,0 +1,178 @@
+html {
+	&.modal-open,
+	&.modal-open body {
+		overflow: hidden;
+	}
+}
+
+.detail_pane {
+	position: fixed;
+	top: 2vh;
+	bottom: 0;
+	right: 2vh;
+	left: 2vh;
+	transform: translateY(100vh);
+	box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+	border-radius: 1rem 1rem 0 0;
+	overflow: hidden;
+	transition: transform .4s ease-out;
+	background-color: #fff;
+	z-index: 1000;
+	
+	&.show {
+		transform: translateY(0);
+	}
+	
+	.full_info,
+	.reel_frame  {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		width: 50%;
+	}
+	
+	.close_bar {
+		font-size: 2.5rem;
+		padding: 0 1.2rem .15rem;
+		border-bottom: solid 1px #ddd;
+		line-height: 1;
+		cursor: pointer;
+		position: absolute;
+		top: 0;
+		width: 50%;
+		z-index: 1;
+		
+		&:hover {
+			color: #656565;
+		}
+	}
+	
+	.full_info {
+		left: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	
+	.details {
+		padding: 3em;
+		
+		h3 {
+			margin-bottom: .5em;
+		}
+		
+		.project_title {
+			line-height: 1;
+		}
+		
+		.project_year {
+			display: inline-block;
+			font-size: .4em;
+			color: #777;
+			letter-spacing: 0;
+		}
+		
+		.project_linklist {
+			list-style: none;
+			margin-top: 1em;
+			text-transform: uppercase;
+			font-size: .9em;
+			
+			li {
+				margin-bottom: .5em;
+			}
+			
+			a {
+				color: $hover-color;
+				text-decoration: none;
+				
+				&:after {
+					content: url('../imgs/arrow.svg');
+					display: inline-block;
+					width: 15px;
+					margin: 1px 0 0 .25em;
+				}
+				
+				&:hover {
+					text-decoration: underline;
+				}
+			}
+		}
+		
+		& > *:empty {
+			display: none;
+		}
+	} 
+	
+	.reel_frame {
+		right: 0;
+		background-color: hsl(0, 0%, 98%);
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		border-left: solid 1px #ddd;
+		
+		.image_reel {
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
+			max-height: 100%;
+			font-size: 0;
+			text-align: center;
+			will-change: contents;
+		}
+		
+		img {
+			width: 100%;
+			max-width: 1000px;
+		}
+		
+		img + img {
+			margin-top: 3vh;
+		}
+	}
+	
+	
+	@media screen and (max-width: 900px) {
+
+		display: flex;
+		flex-direction: column;
+
+		.close_bar {
+			position: relative;
+			width: 100%;
+			flex: 0;
+		}
+		
+		.detail_content {
+			overflow: scroll;
+			-webkit-overflow-scrolling: touch;
+			flex: 1;
+		}
+		
+		.full_info,
+		.reel_frame {
+			position: relative;
+			width: 100%;
+		}
+
+		.full_info {
+			display: block;
+		}
+		
+		.details {
+			padding: 3em 9vw 4em;
+		}
+		
+		.reel_frame {
+			background-color: white;
+			border-left: none;
+			display: block;
+			
+			.image_reel {
+				max-height: none;
+			}
+		}
+	}
+
+}

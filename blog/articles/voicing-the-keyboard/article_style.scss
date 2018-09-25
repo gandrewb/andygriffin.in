@@ -1,0 +1,61 @@
+@import '../../sass/modules/responsive';
+@import '../../sass/modules/settings';
+
+.article_body {
+
+	//GENERAL STYLES
+	.content_imgs {
+		@include content_width();
+		@include viewport(s){
+			max-width: 100%;
+			padding: 0;
+		}
+	}
+	
+	.sketch {
+		width: 100%;
+		margin: 0 0 5%;
+		
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		
+		&.sketch_three {
+			@include viewport(s){
+				margin-bottom: 5%;
+			}
+		}
+	}
+	
+	.ma_illustration {
+		width: 175px;
+		float: left;
+		margin: .5em 1em 0 0;
+		display: inline-block;
+		
+		@include viewport(m){
+			width: 150px;
+		}
+		@include viewport(s){
+			width: 130px;
+		}
+	}
+	
+	.logo_square { 
+		width: 22.5%;
+		margin: 0 0 2%;
+		
+		@include viewport(s){
+			width: 49%;
+		}
+	}
+	
+	.logo_long { 
+		width: 50.5%;
+		margin: 0 0 2%;
+		
+		@include viewport(s){
+			width: 100%;
+		}
+	}
+}

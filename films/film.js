@@ -1,15 +1,17 @@
 // each filter needs an additional property to track currently number of currently showing films for the badge
 
 var dom = {
-	tbody: document.querySelector('.film_list tbody'),
+	film_list: document.querySelector('.film_list'),
 	filter_box: document.getElementById('filter_box'),
 	clear: document.getElementById('clear_filters'),
 	order: document.getElementById('order_filters'),
+	menu_btn: document.getElementById('menu_btn'),
+	tag_headers: document.querySelectorAll('.tag_header'),
 	frames: []
 };
 
 AG.ajax({
-	url: 'model.php',
+	url: 'films_db.json',
 	type: 'POST',
 	data: {action: 'load'},
 	done: function(msg){
@@ -41,7 +43,7 @@ var films = {
 		films.clear();
 		var len = films.working.length;
 		for(var x=0; x<len; x++){
-			dom.tbody.appendChild(this.printRow(this.master[this.working[x]]));
+			dom.film_list.appendChild(this.printRow(this.master[this.working[x]]));
 		}
 	},
 	change_order: function(field){
@@ -53,7 +55,7 @@ var films = {
 		}
 	},
 	clear: function(){
-		dom.tbody.innerHTML = '';
+		dom.film_list.innerHTML = '';
 	},
 	order: function(){
 		this.working.sort(function(a,b){
@@ -65,18 +67,8 @@ var films = {
 		});
 	},	
 	printRow: function(film){
-		var row = document.createElement('tr');
-		
-		var cell1 = document.createElement('td');
-		var txt1 = document.createTextNode(film.year);
-		cell1.appendChild(txt1);
-		row.appendChild(cell1);
-		
-		var cell2 = document.createElement('td');
-		var txt2 = document.createTextNode(film.title);
-		cell2.appendChild(txt2);
-		row.appendChild(cell2);
-		
+		var row = document.createElement('div');
+		row.innerHTML = '<time>'+film.year+'</time><p>'+film.title+'</p>';
 		return row;
 	},
 	reset: function(){
@@ -248,9 +240,12 @@ document.body.onload = function(){
 		filters.order();
 		filters.build();
 	});
-	dom.order.addEventListener('click', function(){
-		
+	//dom.order.addEventListener('click', function(){ });
+	
+	dom.menu_btn.addEventListener('click', function(){
+		document.body.classList.toggle('menu_open');
 	});
+	
 	var sorts = document.querySelectorAll('[data-sort]');
 	var len = sorts.length;
 	for(var x=0; x<len; x++){
@@ -260,9 +255,24 @@ document.body.onload = function(){
 			films.build();
 		});
 	}
-	document.getElementById('search_field').addEventListener('keyup', function(){
+	/*
+document.getElementById('search_field').addEventListener('keyup', function(){
 		films.search(this.value);
 		films.order();
 		films.build();
 	});
+*/
+	
+	for (var i=0, l=dom.tag_headers.length; i<l; i++){
+		dom.tag_headers[i].addEventListener('click', function(e){
+			
+			var open = e.target.parentNode.classList.contains('open');
+			
+			for(var x=0, len=dom.tag_headers.length; x<len; x++){
+				dom.tag_headers[x].parentNode.classList.remove('open');
+			}
+			
+			if(!open){ e.target.parentNode.classList.add('open'); }
+		});
+	}
 }

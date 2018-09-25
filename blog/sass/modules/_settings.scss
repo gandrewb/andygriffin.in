@@ -1,0 +1,6 @@
+//SHARED MIXINS
+@mixin content_width(){
+	max-width: 37.5em;
+	padding: 0 2em;
+	margin: 0 auto;
+}

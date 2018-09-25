@@ -1,0 +1,12 @@
+$viewports : (
+	m: 1100px,
+	s: 660px
+);
+
+@mixin viewport($vp) {
+	
+	@media screen and (max-width: map-get($viewports, $vp)) {
+		@content;
+	}
+	
+}

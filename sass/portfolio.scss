@@ -1,0 +1,34 @@
+@import 'includes/base';
+
+$sliver-align: calc(40% - 110px);
+$sliver-align-sm: 8vw;
+
+.hero {
+	padding-bottom: 250px;
+	@include logo-align;
+	
+	h2{
+		margin-bottom: .2em;
+	}
+	
+	.intro {
+		max-width: 34em;
+	}
+	
+	@include viewport(m){
+		padding-bottom: 200px;
+	}
+	
+	@include viewport(s){
+		padding-bottom: 100px;
+
+		.intro {
+			p {
+				font-size: 1.2em;
+			}
+		}
+	}
+}
+
+@import 'includes/portfolio/gallery';
+@import 'includes/portfolio/detail-pane';

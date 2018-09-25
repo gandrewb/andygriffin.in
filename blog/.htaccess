@@ -1,0 +1,3 @@
+RewriteEngine On
+
+RewriteRule   ^article/(.+)$   article.php?title=$1   [NC,L]   #Rewrite for blog articles

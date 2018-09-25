@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAGA;;;;;;;;;EASE;ACTF;;;;;;;;;EASE;AAGF,aAAc;EAEd;;;;IAIE",
+"sources": ["../../src/ag_lib/scss/_responsive.scss","article_style.scss"],
+"names": [],
+"file": "article_style.css"
+}

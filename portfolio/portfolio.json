@@ -1,0 +1,425 @@
+{"projects":{
+	
+	"apple": {
+		"title": "Apple",
+		"year": "2012–2017",
+		"thumbnail": "app_store.jpg",
+		"description": "Over the course of 5 years at Apple, I designed and built a number of internal websites, apps, videos and games. I also worked as a front end developer on customer-facing sites on apple.com including: iMac, Mac mini, iPod touch, Apple Watch, macOS Sierra, iOS 11 and the App Store — and was assigned as lead developer on six of them.",
+		"directory": "apple",
+		"tags": ["2D", "app", "website"],
+		"images": [
+			{"alt": "App Store Demo by Andy Griffin", "filename": "app_store_full.jpg"}
+		]
+	},
+	
+	"blues": {
+		"title": "The Blues",
+		"year": 2012,
+		"thumbnail": "blues_logo.png",
+		"description": "A forlorn, anthropomorphized piano keyboard that evokes the blues in this logo.",
+		"directory": "blues",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "Blues Logo by Andy Griffin", "filename": "blues_logo_full.png"}
+		]
+	},
+	
+	"brandenburg_gate": {
+		"title": "Brandenburg Gate Spread",
+		"year": 2011,
+		"thumbnail": "brandenburg_gate_spread.jpg",
+		"description": "A setting of an article on the Brandenburg Gate in Berlin, featuring a typographical illustration of the horseman’s scepter.",
+		"directory": "brandenburg_gate",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Brandenburg Gate Spread by Andy Griffin", "filename": "brandenburg_gate_full.jpg"}
+		]
+	},
+	
+	"chinese_warrior": {
+		"title": "Chinese Warrior",
+		"year": 2008,
+		"thumbnail": "warrior.png",
+		"description": "An illustration of a Chinese archer commissioned by Easton Archery, the foremost archery sporting goods supplier for the 2008 Summer Olympics in Beijing that was etched into a gold lapel pin for trading.",
+		"directory": "chinese_warrior",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Chinese Warrior Illustration by Andy Griffin", "filename": "chinese_warrior_full.png"}
+		]
+	},
+	
+	"cinema_sign": {
+		"title": "Cinema Sign",
+		"year": 2015,
+		"thumbnail": "cinema_sign.jpg",
+		"description": "An electric sign I designed and built to imitate art-deco neon movie theater signs. It involved heavy design research, detailed construction schematics, woodworking, and electrical engineering and circuitry using electroluminescent wire.",
+		"directory": "cinema_sign",
+		"tags": ["3D", "environmental graphics", "lighting", "sculpture"],
+		"urls": [{"linktext": "How it was Made", "url": "/blog/article/because-neon"}],
+		"images": [
+			{"alt": "Neon Cinema Sign by Andy Griffin", "filename": "cinema_sign_full.jpg"},
+			{"alt": "Neon Cinema Sign Under Construction by Andy Griffin", "filename": "cinema_sign_under_construction.jpg"}
+		]
+	},
+	
+	"creche": {
+		"title": "Christmas Crèche Exhibit",
+		"year": 2016,
+		"thumbnail": "creche.jpg",
+		"description": "A website I redesigned and improved for the annual nativity gallery in Palo Alto. The site is updated with both new content and a freshened design to match other marketing materials each year. I have both designed and coded the site each year since 2016.",
+		"directory": "christmas_creche",
+		"tags": ["2D", "website"],
+		"urls": [{"linktext": "Visit the Site", "url": "http://www.christmascreche.org"}],
+		"images": [
+			{"alt": "Christmas Crèche Exhibit Homepage by Andy Griffin", "filename": "creche_homepage.jpg"}
+		]
+	},
+	
+	"cyber_warfare": {
+		"title": "Cyber Warfare",
+		"year": 2013,
+		"thumbnail": "cyber_ipad_app.png",
+		"description": "A public exhibit comprised of both a wide-format infographic banner and an interactive web app that educate on both international and individual cyber security pitfalls and best practices. I designed the infographic and its curved display mechanism, and both designed and coded the web app.",
+		"directory": "cyber_warfare",
+		"tags": ["2D", "app", "environmental graphics"],
+		"images": [
+			{"alt": "Cyber Warfare Infographic Banner by Andy Griffin", "filename": "cyber_banner.png"},
+			{"alt": "Cyber Warfare Infographic Detail by Andy Griffin", "filename": "cyber_infographic_detail.jpg"},
+			{"alt": "Cyber Warfare Webapp Screens by Andy Griffin", "filename": "cyber_screens.jpg"},
+			{"alt": "Cyber Warfare Exhibit by Andy Griffin", "filename": "cyber_environmental.jpg"}
+		]
+	},
+	
+	"e_t": {
+		"title": "E.T.",
+		"year": 2017,
+		"thumbnail": "et.jpg",
+		"description": "A halloween pumpkin I sculpted and airbrushed to resemble E.T. from Steven Spielberg’s famous 1982 film of the same name.",
+		"directory": "et_pumpkin",
+		"tags": ["3D", "sculpture"],
+		"images": [
+			{"alt": "E.T. Pumpkin Sculpture by Andy Griffin", "filename": "et_full.jpg"},
+			{"alt": "E.T. Pumpkin Sculpture Unpainted by Andy Griffin", "filename": "et_paintless.jpg"}
+		]
+	},
+	
+	"evil_elk": {
+		"title": "Evil Elk Skull",
+		"year": 2009,
+		"thumbnail": "evil_elk_illustration.jpg",
+		"description": "An illustration of an elk skull created for use on a hunting arrow wrap for Easton Archery.",
+		"directory": "evil_elk",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Evil Elk Skull Illustration by Andy Griffin", "filename": "evil_elk_full.jpg"}
+		]
+	},
+	
+	"faux_fox": {
+		"title": "Faux Fox",
+		"year": 2011,
+		"thumbnail": "faux_fox_logo.png",
+		"description": "An illustrative logo for a fictional taxidermy company.",
+		"directory": "faux_fox",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "Faux Fox Logo by Andy Griffin", "filename": "faux_fox_logo_full.png"}
+		]
+	},
+	
+	"first_light": {
+		"title": "First Light",
+		"year": 2017,
+		"thumbnail": "first_light.jpg",
+		"description": "An artwork that combines wood relief with stained glass styles to represent the central figures in the nativity story. A laser cutter was employed to cut and etch the designs in woods and colored acrylics. The piece is backlit with programmable LEDs in a custom diffuser box.",
+		"directory": "first_light_nativity",
+		"tags": ["3D", "lighting", "sculpture"],
+		"urls": [{"linktext": "How it was Made", "url": "/blog/article/first-light"}],
+		"images": [
+			{"alt": "First Light Sculpture by Andy Griffin", "filename": "first_light_full.jpg"},
+			{"alt": "First Light Sculpture Piece from Laser Cutter by Andy Griffin", "filename": "first_light_lasered.jpg"},
+			{"alt": "First Light Sculpture Under Construction by Andy Griffin", "filename": "first_light_process.jpg"}
+		]
+	},
+	
+	"gift_box": {
+		"title": "Gift Box",
+		"year": 2010,
+		"thumbnail": "gift_box_illustration.jpg",
+		"description": "A vector illustration of a gift box made for an e-commerce holiday promotion.",
+		"directory": "gift_box",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Gift Box Illustration by Andy Griffin", "filename": "gift_box_full.jpg"}
+		]
+	},
+	
+	"griffin_firepit": {
+		"title": "Griffin Firepit",
+		"year": 2013,
+		"thumbnail": "griffin_firepit.jpg",
+		"description": "A large, rectangular, Griffin-themed fire pit with built-in seating designed and built for maximum seating capacity, comfort, and tool storage. ",
+		"directory": "griffin_firepit",
+		"tags": ["3D", "landscape architecture"],
+		"images": [
+			{"alt": "Griffin Firepit by Andy Griffin", "filename": "griffin_firepit_full.jpg"},
+			{"alt": "Glimmer Firepit Detail by Andy Griffin", "filename": "griffin_detail.jpg"}
+		]
+	},
+	
+	"happy_place": {
+		"title": "Happy Place",
+		"year": 2015,
+		"thumbnail": "pixar_cityscape.png",
+		"description": "An illustration that combines a building or location from each Pixar movie in one diverse cityscape.",
+		"directory": "pixar_cityscape",
+		"tags": ["2D", "illustration"],
+		"urls": [{"linktext": "How it was Made", "url": "/blog/article/happy-place"}],
+		"images": [
+			{"alt": "Happy Place Pixar Cityscape Illustration by Andy Griffin", "filename": "pixar_cityscape_full.png"},
+			{"alt": "Happy Place Pixar Cityscape Illustration by Andy Griffin", "filename": "pixar_cityscape_detail.png"}
+		]
+	},
+	
+	"hobby_heap": {
+		"title": "Hobby Heap",
+		"year": 2009,
+		"thumbnail": "hobby_heap_logo.png",
+		"description": "A logo with a vintage appliance feel for a service meant to help its users discover new meaningful pastimes.",
+		"directory": "hobby_heap",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "Hobby Heap Logo by Andy Griffin", "filename": "hobby_heap_full.png"}
+		]
+	},
+	
+	"holiday_beacon": {
+		"title": "Holiday Beacon",
+		"year": 2018,
+		"thumbnail": "holiday_beacon.jpg",
+		"description": "This edge-lit acrylic sign was designed to celebrate special occasions with a sleek beam of colored light. Interchangeable acrylic slabs feature designs for various special occasions that rest in a sturdy, angular walnut base. LED lighting allows for a range of color options to complement the occasion.",
+		"directory": "holiday_beacon",
+		"tags": ["3D", "environmental graphics", "lighting", "sculpture"],
+		"images": [
+			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "lightsaber.jpg"},
+			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "holiday_beacon_full.jpg"},
+			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "daylight_detail.jpg"},
+			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "glow_structure.jpg"}
+		]
+	},
+	
+	"johnson_firepit": {
+		"title": "Johnson Firepit",
+		"year": 2016,
+		"thumbnail": "johnson_firepit.jpg",
+		"description": "A fire pit with built-in seating constructed of reclaimed brick as part of a larger backyard transformation for a family seeking a yard more hospitable to gathering and family time.",
+		"directory": "johnson_firepit",
+		"tags": ["3D", "landscape architecture"],
+		"images": [
+			{"alt": "Johnson Firepit by Andy Griffin", "filename": "johnson_firepit_full.jpg"},
+			{"alt": "Johnson Firepit Rendering by Andy Griffin", "filename": "johnson_firepit_rendering.jpg"},
+			{"alt": "Wore out gloves while building Johnson Firepit by Andy Griffin", "filename": "worn_out_gloves.jpg"}
+		]
+	},
+	
+	"johnson_sandbox": {
+		"title": "Johnson Sandbox",
+		"year": 2017,
+		"thumbnail": "sandbox.jpg",
+		"description": "A sandbox with a built-in chalkboard, sun shade, and multi-purpose sliding cover that functions also as bench seating and a play deck. I began with a 3D rendering, and did all the construction work myself.",
+		"directory": "johnson_sandbox",
+		"tags": ["3D", "landscape architecture"],
+		"images": [
+			{"alt": "Johnson Sandbox by Andy Griffin", "filename": "sandbox_full.jpg"},
+			{"alt": "Johnson Sandbox 3D Rendering by Andy Griffin", "filename": "johnson_sandbox_rendering.jpg"},
+			{"alt": "Johnson Sandbox in Use by Andy Griffin", "filename": "aerial_play.jpg"},
+			{"alt": "Johnson Sandbox Under Construction by Andy Griffin", "filename": "construction.jpg"},
+			{"alt": "Johnson Sandbox in Use by Andy Griffin", "filename": "sandbox_play.jpg"}
+		]
+	},
+	
+	"lanturn": {
+		"title": "Lanturn",
+		"year": 2018,
+		"thumbnail": "centerpiece.jpg",
+		"description": "An illuminated kinetic sculpture designed as a wedding table centerpiece. Candles within the upper basket both expel light and generate heat to spin the turbine. Digitally designed, cut from slabs of walnut by laser cutter, and reproduced for placement on each table at the party.",
+		"directory": "wedding_centerpiece",
+		"tags": ["3D", "lighting", "sculpture"],
+		"images": [
+			{"alt": "Lanturn Kinetic Light Sculpture by Andy Griffin", "filename": "glimmer_top_dark.jpg"},
+			{"alt": "Lanturn Kinetic Light Sculpture by Andy Griffin", "filename": "glimmer_top_light.jpg"}
+		]
+	},
+	
+	"mayfield": {
+		"title": "Mayfield Singers",
+		"year": 2015,
+		"thumbnail": "mayfield_home.jpg",
+		"description": "For a number of years, I’ve built and expanded the brand system for this chamber choir — including the logo, website, signage, concert advertising, program leaflets and more. The website, which I both design and code, includes a custom music player and a donation feature.",
+		"directory": "mayfield_singers",
+		"tags": ["2D", "logo", "website"],
+		"urls": [{"linktext": "Visit the Site", "url": "https://www.mayfieldsingers.org"}, {"linktext": "How it was Made", "url": "/blog/article/voicing-the-keyboard"}],
+		"images": [
+			{"alt": "Mayfield Singers Homepage by Andy Griffin", "filename": "mayfield_home_full.jpg"},
+			{"alt": "Concert Invitations for Mayfield Singers by Andy Griffin", "filename": "fliers.jpg"}
+		]
+	},
+	
+	"nien_nunb": {
+		"title": "Nien Nunb",
+		"year": 2016,
+		"thumbnail": "nien_nunb.jpg",
+		"description": "A halloween pumpkin I sculpted and airbrushed to resemble Nien Nunb, a character featured in the Star Wars franchise.",
+		"directory": "nien_nunb_pumpkin",
+		"tags": ["3D", "sculpture"],
+		"images": [
+			{"alt": "Nien Nunb Pumpkin Sculpture by Andy Griffin", "filename": "nien_nunb_full.jpg"},
+			{"alt": "Nien Nunb Pumpkin Sculpture Before Paint by Andy Griffin", "filename": "nien_nunb_paintless.jpg"}
+		]
+	},
+ 	
+	"north_magazine": {
+		"title": "North Magazine",
+		"year": 2017,
+		"thumbnail": "north_homepage.jpg",
+		"description": "An online publishing platform for an organization seeking to provide education and awareness on suicide and behavioral health. I both designed and coded the site based on an existing content management system. Heavy emphasis was placed on typographical design as a main element. Illustrations by Geraldine Sy and Tayrine Cruz.",
+		"directory": "north",
+		"tags": ["2D", "website"],
+		"urls": [{"linktext": "Visit the Site", "url": "https://north.voi.com"}],
+		"images": [
+			{"alt": "North Magazine Homepage by Andy Griffin", "filename": "north_homepage_full.jpg"},
+			{"alt": "North Magazine Article by Andy Griffin", "filename": "north_article.jpg"}
+		]
+	},
+	
+	"penetration": {
+		"title": "Penetration",
+		"year": 2009,
+		"thumbnail": "penetration_illustration.jpg",
+		"description": "An illustration meant to demonstrate the penetrating power of a hunting arrow used in several consecutive annual Easton Archery product catalogs.",
+		"directory": "penetration",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Penetration Illustration by Andy Griffin", "filename": "penetration_full.jpg"}
+		]
+	},
+	
+	"pinwheel": {
+		"title": "Pinwheel",
+		"year": 2012,
+		"thumbnail": "pinwheel_logo.png",
+		"description": "A logo developed for a fictional password security service.",
+		"directory": "pinwheel",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "Pinwheel Logo by Andy Griffin", "filename": "pinwheel_logo_full.jpg"}
+		]
+	},
+	
+	"pixar_portal": {
+		"title": "Pixar Portal",
+		"year": 2013,
+		"thumbnail": "pixar_portal_home.jpg",
+		"description": "A website I designed and coded that reports on news and rumors related to Pixar Animation Studios.",
+		"directory": "pixar_portal",
+		"tags": ["2D", "website"],
+		"urls": [{"linktext": "Visit the Site", "url": "http://www.pixarportal.com"}],
+		"images": [
+			{"alt": "Pixar Portal Homepage by Andy Griffin", "filename": "pixar_portal_home_full.jpg"},
+			{"alt": "Pixar Portal Mobile by Andy Griffin", "filename": "pixar_portal_mobile.jpg"},
+			{"alt": "Pixar Portal Movie Page by Andy Griffin", "filename": "pixar_portal_movie_page.jpg"}
+		]
+	},
+	
+	"radical": {
+		"title": "RadiCal",
+		"year": 2013,
+		"thumbnail": "radical.jpg",
+		"description": "A working calendar app prototype that visualizes the day’s appointments in a clock-like display. It won first place in the Information Technology category of the Research and Creative Works Conference at BYU-Idaho.",
+		"directory": "radical",
+		"tags": ["2D", "app"],
+		"images": [
+			{"alt": "RadiCal Calendar App by Andy Griffin", "filename": "radical_full.jpg"}
+		]
+	},
+	
+	"tongue_head": {
+		"title": "Tongue Head",
+		"year": 2009,
+		"thumbnail": "tongue_head_illustration.jpg",
+		"description": "A whimsical illustration that emerged when unrelated logo exploration sketches produced some unexpected shapes.",
+		"directory": "tongue_head",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Tongue Head Illustration by Andy Griffin", "filename": "tongue_head_full.jpg"}
+		]
+	},
+	
+	"voi": {
+		"title": "Voi",
+		"year": 2018,
+		"thumbnail": "voi_home.jpg",
+		"description": "A homepage design developed for a company working in suicide prevention. A desire to incorporate humanity and storytelling drove this design to replace a page that was originally product and sales-heavy. I both designed the page and wrote the content.",
+		"directory": "voi",
+		"tags": ["2D", "website"],
+		"images": [
+			{"alt": "Voi Homepage by Andy Griffin", "filename": "voi_home_full.jpg"}
+		]
+	},
+	
+	"warthen_50": {
+		"title": "Warthen 50th",
+		"year": 2018,
+		"thumbnail": "warthen_2018.png",
+		"description": "An illustration commissioned for use on a T-shirt commemorating a 50th wedding anniversary. For decades, the family operated a Buick dealership, so the illustration features a 1968 Buick Skylark.",
+		"directory": "warthen_2018",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Warthen 50 Illustration by Andy Griffin", "filename": "warthen_2018_full.png"},
+			{"alt": "Warthen 50 T-shirt by Andy Griffin", "filename": "tshirt_boys.jpg"}
+		]
+	},
+	
+	"wedding": {
+		"title": "Chloe &amp; Andy’s Wedding",
+		"year": 2018,
+		"thumbnail": "wedding_homepage.jpg",
+		"description": "A website, logo, printed invitations, laser-cut party favors, and signage as part of a brand system developed for my wedding when my wife, Chloe, and I got married.",
+		"directory": "wedding",
+		"tags": ["2D", "environmental graphics", "logo", "website"],
+		"urls": [{"linktext": "Visit the Site", "url": "http://chloeandandy.com"}],
+		"images": [
+			{"alt": "Wedding Logo by Andy Griffin", "filename": "ca_logo.png"},
+			{"alt": "Wedding Sign by Andy Griffin", "filename": "wedding_sign.jpg"},
+			{"alt": "Wedding Invitation by Andy Griffin", "filename": "wedding_invitation.png"},
+			{"alt": "Wedding Coasters by Andy Griffin", "filename": "wedding_coasters.jpg"},
+			{"alt": "Wedding Website RSVP Page by Andy Griffin", "filename": "ca_rsvp.jpg"}
+		]
+	},
+	
+	"x_10": {
+		"title": "X10 Arrow",
+		"year": 2008,
+		"thumbnail": "x_10_logo.png",
+		"description": "A logo designed for the rebranding of a top-selling target arrow from Easton Archery.",
+		"directory": "x_10",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "X10 Arrow Wrap Logo by Andy Griffin", "filename": "x_10_logo_full.png"}
+		]
+	},
+	
+	"you_twit": {
+		"title": "You Twit",
+		"year": 2013,
+		"thumbnail": "twit.png",
+		"description": "A logo meme featuring a scrawny cartoon bird that emerged from a literal pen scribble on some scratch paper.",
+		"directory": "you_twit",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "You Twit Logo by Andy Griffin", "filename": "twit_full.png"},
+			{"alt": "You Twit Logo Scribble Sketch by Andy Griffin", "filename": "twit_scribble.jpg"}
+		]
+	}
+	
+}}

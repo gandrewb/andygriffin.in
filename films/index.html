@@ -3,63 +3,68 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="film_style.css">
-	<title>Andy's Film Collection</title>
+	<title>Andy’s Film Collection</title>
+	
+	<meta name="viewport" content="user-scalable=0, initial-scale=1.0">
 </head>
 <body>
 
-	<h1>Andy's Film Collection</h1>
-	<button id="clear_filters">Clear Filters</button>
+	<h1>Andy’s Film Collection</h1>
+	<button id="clear_filters" class="button clear_button">Clear Filters</button>
+<!--
 	<button id="order_filters">Change Order</button>
 	<input type="serach" id="search_field" />
+-->
 
 	<section class="film_frame">
 		<aside class="filters">
+			<div id="menu_btn" class="menu_btn">=</div>
 			<div id="filter_box">
 				<div class="frame" id="category_frame">
-					<h2>category</h2><div></div>
+					<h2 class="tag_header list_header">category</h2><div></div>
 				</div>
 				<div class="frame" id="tags_frame">
-					<h2>tags</h2><div></div>
+					<h2 class="tag_header list_header">tags</h2><div></div>
 				</div>
 				<div class="frame" id="actors_frame">
-					<h2>actors</h2><div></div>
+					<h2 class="tag_header list_header">actors</h2><div></div>
 				</div>
 				<div class="frame" id="composers_frame">
-					<h2>composers</h2><div></div>
+					<h2 class="tag_header list_header">composers</h2><div></div>
 				</div>
 				<div class="frame" id="directors_frame">
-					<h2>directors</h2><div></div>
+					<h2 class="tag_header list_header">directors</h2><div></div>
 				</div>
 				<div class="frame" id="genres_frame">
-					<h2>genres</h2><div></div>
+					<h2 class="tag_header list_header">genres</h2><div></div>
 				</div>
 				<div class="frame" id="languages_frame">
-					<h2>languages</h2><div></div>
+					<h2 class="tag_header list_header">languages</h2><div></div>
 				</div>
 				<div class="frame" id="media_frame">
-					<h2>media</h2><div></div>
+					<h2 class="tag_header list_header">media</h2><div></div>
 				</div>
 				<div class="frame" id="mpaa_frame">
-					<h2>MPAA</h2><div></div>
+					<h2 class="tag_header list_header">MPAA</h2><div></div>
 				</div>
 				<div class="frame" id="shorts_frame">
-					<h2>shorts</h2><div></div>
+					<h2 class="tag_header list_header">shorts</h2><div></div>
 				</div>
 				<div class="frame" id="tech_frame">
-					<h2>tech</h2><div></div>
+					<h2 class="tag_header list_header">tech</h2><div></div>
 				</div>
 			</div>
 		</aside>
-		<table class="film_list">
-			<thead><tr>
-				<td data-sort="year">Year</td>
-				<td data-sort="sort_title">Title</td>
-			</tr></thead>
-			<tbody></tbody>
-		</table>
+		<div class="films">
+			<header class="list_labels">
+				<div data-sort="year" class="list_header year_header">Year</div>
+				<div data-sort="sort_title" class="list_header title_header">Title</div>
+			</header>
+			<div class="film_list"></div>
+		</div>
 	</section>
 
-	<script src="../js/ag.js"></script>
+	<script src="ag.js"></script>
 	<script src="film.js"></script>
 
 </body>

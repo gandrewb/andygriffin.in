@@ -1,0 +1,8 @@
+@import 'includes/base';
+
+$gallery-gutter: 30px;
+$sliver-align: calc(40% - 110px);
+$sliver-align-sm: 8vw;
+
+@import 'includes/portfolio/gallery';
+@import 'includes/portfolio/detail-pane';

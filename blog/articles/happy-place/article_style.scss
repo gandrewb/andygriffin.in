@@ -1,0 +1,9 @@
+.happy_place_full {
+	max-width: 1400px;
+	border: solid 1px #ccc;
+	
+	@media screen and (max-width: 1400px) {
+		border-left: 0;
+		border-right: 0;
+	}
+}

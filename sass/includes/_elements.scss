@@ -23,9 +23,27 @@ p {
 		margin-bottom: 0;
 	}
 }
+
 .content {
 	max-width: 1400px;
 	margin: 0 auto;
 	padding: 0 $side-padding;
 	position: relative;
+}
+
+.arrow_link {
+	color: $hover-color;
+	text-decoration: none;
+	margin-right: -1.5em;
+	
+	&:after {
+		content: url('../imgs/arrow.svg');
+		display: inline-block;
+		width: .833em;
+		margin: 1px 0 0 .25em;
+	}
+	
+	&:hover {
+		text-decoration: underline;
+	}
 }

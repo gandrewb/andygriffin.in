@@ -81,22 +81,6 @@ html {
 			li {
 				margin-bottom: .5em;
 			}
-			
-			a {
-				color: $hover-color;
-				text-decoration: none;
-				
-				&:after {
-					content: url('../imgs/arrow.svg');
-					display: inline-block;
-					width: 15px;
-					margin: 1px 0 0 .25em;
-				}
-				
-				&:hover {
-					text-decoration: underline;
-				}
-			}
 		}
 		
 		& > *:empty {
@@ -171,6 +155,7 @@ html {
 			
 			.image_reel {
 				max-height: none;
+				overflow: visible;
 			}
 		}
 	}

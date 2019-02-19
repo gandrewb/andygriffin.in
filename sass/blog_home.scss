@@ -7,6 +7,7 @@ main {
 
 .blog_index {
 	margin: 2.5em 0 8em;
+	min-height: 50vh;
 	
 	.article_link {
 		padding: 1.5em 0 1.4em;
@@ -23,23 +24,5 @@ main {
 		line-height: 2;
 		flex: 0 0 7.5em;
 		font-size: .75em;
-	}
-	
-	a {
-		text-decoration: none;
-		color: $hover-color;
-		
-		&:hover {
-			text-decoration: underline;
-		}
-		
-		&:after {
-			content: url('/imgs/arrow.svg');
-			display: inline-block;
-			width: 19px;
-			margin-left: .25em;
-			position: relative;
-			top: 1px;
-		}
 	}
 }

@@ -1,0 +1,37 @@
+.columns {
+	display: flex;
+	padding: 0 #{$gallery-gutter-l / 2};
+	line-height: 0;
+	margin: 0 auto;
+	text-align: center;
+	
+	.col {
+		flex: 1;
+		
+		& > * {
+			display: inline-block;
+			position: relative;
+			margin: #{$gallery-gutter-l / 2} 0;
+			width: calc(100% - #{$gallery-gutter-l});
+		}
+	}
+	
+	@include viewport(m){
+		padding: 0 #{$gallery-gutter-m / 2};
+		
+		.col > * {
+			margin: #{$gallery-gutter-m / 2} 0;
+			width: calc(100% - #{$gallery-gutter-m});
+		}
+	}
+	
+	@include viewport(s){
+		max-width: 565px;
+		padding: 0;
+		
+		.col > * {
+			margin: $gallery-gutter-s 0;
+			width: calc(100% - 16vw);
+		}
+	}
+}

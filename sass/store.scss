@@ -1,0 +1,65 @@
+$gallery-gutter-l: 36px;
+$gallery-gutter-m: 26px;
+$gallery-gutter-s: 15px;
+
+@import 'includes/base';
+@import 'includes/columns';
+
+.store_intro {
+	@include logo-align;
+	padding-bottom: 5em;
+	
+	.intro {
+		max-width: 34em;
+		margin-top: 1em;
+	}
+}
+
+.store_showroom {
+	padding-bottom: 8em;
+
+	.laser_products {
+		max-width: 2000px;
+	}
+	
+	.product_link {
+		border: solid 1px $thumbnail-border;
+		border-radius: 5px;
+		overflow: hidden;
+		text-decoration: none;
+		color: #000;
+		
+		&:hover .arrow_link {
+			text-decoration: underline;
+		}
+		
+		img {
+			width: 100%;
+			border-bottom: solid 1px $thumbnail-border;
+		}
+		
+		.product_text {
+			background-color: #fff;
+			line-height: 1.4;
+			text-align: left;
+			padding: .75em;
+			
+			h3 {
+				line-height: 1.1;
+				font-size: .9rem;
+				margin: .2em 0 .25em;
+			}
+			
+			.price {
+				float: left;
+				margin-right: 1em;
+			}
+			
+			.arrow_link {
+				font-size: .8em;
+				font-weight: 400;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

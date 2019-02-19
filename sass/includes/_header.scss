@@ -11,7 +11,8 @@ html {
 }
 
 .portfolio_page .portfolio_link,
-.blog_page .blog_link{
+.blog_page .blog_link,
+.store_page .store_link{
 	background-color: $mid-primary;
 	cursor: default;
 	
@@ -105,6 +106,7 @@ html {
 	
 	@include viewport(s){
 		padding-bottom: 125px;
+		overflow: hidden;
 		
 		nav {
 			font-size: 14px;

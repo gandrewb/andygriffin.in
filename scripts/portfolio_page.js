@@ -149,17 +149,147 @@ module.exports = Url;
 },{}],4:[function(require,module,exports){
 'use strict';
 
+function Analytics(options){}
+
+var proto = Analytics.prototype;
+
+
+proto.init = function(){
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+		
+		ga('create', 'UA-17915017-11', 'auto');
+		ga('send', 'pageview');
+};
+
+proto.recordEvent = function(page, action, label){
+	if(window.ga) {
+		ga('send', {
+			hitType: 'event',
+			eventCategory: page,
+			eventAction: action,
+			eventLabel: label
+		});
+	}
+}
+
+
+module.exports = Analytics;
+},{}],5:[function(require,module,exports){
+'use strict';
+
+var Analytics = require('./Analytics.js');
+Analytics = new Analytics();
+
+var Dom = require('./../ag_lib/js/modules/Dom.js');
+Dom = new Dom();
+
+function ColumnGenerator(options) {
+	this.column_breaks = options.column_breaks || [700, 1000, 1400];
+	this.content = options.content || [];
+	this.cur_class = null;
+	this.num_cols = 0;
+	this.parent_el = options.element;
+	
+	this._testCols();
+	window.addEventListener('resize', this._testCols.bind(this));
+}
+
+var proto = ColumnGenerator.prototype;
+
+
+
+proto.updateContent = function(content) {
+	this.content = content;
+	this._rebuildCols(this.num_cols);
+};
+
+
+
+proto._getNumCols = function(browser_wid) {
+	for (var i=0, len=this.column_breaks.length; i<len; i++){
+		if (browser_wid < this.column_breaks[i]) {
+			return i+1;
+		} else if (i == len-1) {
+			return i+2;
+		}
+	}
+};
+
+
+proto._populateColumns = function(divs) {
+	var column = 0, colnum = divs.length;
+	
+	for(var i=0, len=this.content.length; i<len; i++){
+		divs[column].appendChild(this.content[i]);
+		column = (column==colnum-1) ? 0 : column+1;
+	}
+};
+
+
+proto._rebuildCols = function(num) {
+	this._setColClass(num);
+	this.parent_el.innerHTML = '';
+	var column_divs = [];
+	
+	for(var i=0; i<num; i++) {
+		column_divs[i] = Dom.createElement({
+			type: 'div',
+			attributes: {
+				'class': 'col col_' + (i+1)
+			}
+		});
+		
+		this.parent_el.appendChild(column_divs[i]);
+	};
+	
+	this._populateColumns(column_divs);
+	Analytics.recordEvent('Store', 'Column View', num);
+};
+
+
+proto._setColClass = function(num) {
+	this.parent_el.classList.remove(this.cur_class);
+	this.cur_class = 'columns_'+num;
+	this.parent_el.classList.add(this.cur_class);
+};
+
+
+proto._testCols = function() {
+	var numcols = this._getNumCols(window.innerWidth);
+	if (numcols != this.num_cols) {
+		this._rebuildCols(numcols);
+		this.num_cols = numcols;
+	}
+};
+
+
+
+module.exports = ColumnGenerator;
+},{"./../ag_lib/js/modules/Dom.js":2,"./Analytics.js":4}],6:[function(require,module,exports){
+'use strict';
+
+var Analytics = require('./Analytics.js');
+Analytics = new Analytics();
+
 var Dom = require('./../ag_lib/js/modules/Dom.js');
 Dom = new Dom();
 
 var Url = require('./../ag_lib/js/modules/Url.js');
 Url = new Url();
 
-function Portfolio(container_el, data) {
-	this.el = container_el;
-	this.projects = JSON.parse(data).projects;
+var Columns = require('./ColumnGenerator.js');
+
+function Portfolio(options) {
+	this.el = options.container;
+	this.projects = options.data.projects; // project info from db
+	this.show_pieces = options.show_pieces; // names of pieces from db to show
+	this.visible_elements = []; // references to elements visible after filtering, passed to columns
+	this.img_directory = options.img_directory || '/imgs/';
 	
-	this.thumbnails = this.el.querySelectorAll('[data-portfolio_detail]');
+	this.portfolio_frame = document.getElementById('portfolio_frame');
 	this.close_details = document.getElementById('close_details');
 	
 	this.detail_pane = document.getElementById('detail_pane');
@@ -177,7 +307,8 @@ function Portfolio(container_el, data) {
 	
 	this._checkPortfolioVar();
 	this._detailsTriggers();
-	this._analyzeData(this.projects);
+	this._analyzeData();
+	this._initCols();
 	this._createTags(this.el, this.tags);
 }
 
@@ -190,27 +321,20 @@ proto.filterByTag = function(tag) {
 	this._updateTagTriggers();
 	this._updateThumbnails();
 	
-	this._analyticsEvent('Filter By Tag', tag);
+	Analytics.recordEvent('Portfolio', 'Filter By Tag', tag);
 };
 
 
 
 
-proto._analyticsEvent = function(action, label){
-	if(window.ga) {
-		ga('send', {
-			hitType: 'event',
-			eventCategory: 'Portfolio',
-			eventAction: action,
-			eventLabel: label
-		});
-	}
-};
-
-
-proto._analyzeData = function(data) {
-	for (var project in data) {
-		this._populateTags(data[project].tags);
+proto._analyzeData = function() {
+	for (var i=0, len=this.show_pieces.length; i<len; i++) {
+		var key = this.show_pieces[i];
+		var project = this.projects[key];
+		
+		this._populateTags(project.tags);
+		project.el = this._createPortfolioItem(key, project);
+		this.visible_elements.push(project.el);
 	}
 	this.tags.sort()
 };
@@ -242,11 +366,33 @@ proto._createImageReel = function(el, dir, list) {
 			type: 'img',
 			attributes: {
 				'alt': list[i].alt,
-				'src': '/imgs/portfolio/' + dir + '/' + list[i].filename
+				'src': this.img_directory + dir + '/' + list[i].filename
 			}
 		});
 		el.appendChild(img);
 	}
+};
+
+
+proto._createPortfolioItem = function(key, project) {
+	var fig = Dom.createElement({
+		type: 'figure',
+		attributes: {
+			'class': 'thumbnail'
+		}
+	});
+	var img = Dom.createElement({
+		type: 'img',
+		attributes: {
+			'src': this.img_directory + project.directory + '/' + project.thumbnail,
+			'alt': project.title + ' — by Andy Griffin'
+		}
+	});
+	
+	fig.addEventListener('click', function() { this._openPortfolio(key) }.bind(this));
+	
+	fig.appendChild(img);
+	return fig;
 };
 
 
@@ -281,7 +427,8 @@ proto._createLink = function(url, text) {
 	var a = Dom.createElement({
 		type: 'a',
 		attributes: {
-			'href': url
+			'href': url,
+			'class': 'arrow_link'
 		},
 		textnode: text
 	});
@@ -300,29 +447,27 @@ proto._createLinkList = function(el, list){
 };
 
 
-proto._detailBtnClick = function(e) {
-	var key = e.currentTarget.dataset.portfolio_detail;
-	
-	Url.addVariables({
-		vars: [{key: 'portfolio', val: key}],
-		title: this.projects[key].title,
-		history: false
-	});
-	
-	this._openPortfolio(key);
-};
-
-
 proto._detailsTriggers = function() {
-	for(var i=0, len = this.thumbnails.length; i<len; i++) {
-		this.thumbnails[i].addEventListener('click', this._detailBtnClick.bind(this));
-	}
-	
 	this.close_details.addEventListener('click', this._closeDetails.bind(this));
 };
 
 
+proto._initCols = function() {
+	Columns = new Columns({
+		column_breaks: [700, 1000, 1400],
+		content: this.visible_elements,
+		element: this.portfolio_frame
+	});
+};
+
+
 proto._openPortfolio = function(projectkey) {
+
+	Url.addVariables({
+		vars: [{key: 'portfolio', val: projectkey}],
+		title: this.projects[projectkey].title,
+		history: false
+	});
 
 	var project = this.projects[projectkey];
 	
@@ -344,7 +489,7 @@ proto._openPortfolio = function(projectkey) {
 	
 	document.documentElement.classList.add('modal-open');
 	
-	this._analyticsEvent('Open Project Detail', projectkey);
+	Analytics.recordEvent('Portfolio', 'Open Project Detail', projectkey);
 
 };
 
@@ -369,29 +514,27 @@ proto._updateTagTriggers = function() {
 
 
 proto._updateThumbnails = function() {
-	for (var i=0, len = this.thumbnails.length; i<len; i++) {
-		
-		var thm = this.thumbnails[i];
+	this.visible_elements = [];
+	
+	for (var i=0, len = this.show_pieces.length; i<len; i++) {
+		var project = this.projects[this.show_pieces[i]];
+		var thm = project.el;
 		
 		if (this.selected_tag=='') { 
-			thm.classList.remove('hidden'); 
+			this.visible_elements.push(thm);
 		} 
 		
-		else {
-			var key = thm.dataset.portfolio_detail;
-			
+		else {			
 			if (
-				this.projects[key] !== undefined &&
-				this.projects[key].tags.indexOf(this.selected_tag) > -1
+				project !== undefined &&
+				project.tags.indexOf(this.selected_tag) > -1
 			) { 
-				thm.classList.remove('hidden'); 
-			}
-			
-			else {
-				thm.classList.add('hidden');
+				this.visible_elements.push(thm);
 			}
 		}
 	}
+	
+	Columns.updateContent(this.visible_elements);
 };
 
 
@@ -414,11 +557,14 @@ proto._populateTags = function(project_tags){
 
 
 module.exports = Portfolio;
-},{"./../ag_lib/js/modules/Dom.js":2,"./../ag_lib/js/modules/Url.js":3}],5:[function(require,module,exports){
+},{"./../ag_lib/js/modules/Dom.js":2,"./../ag_lib/js/modules/Url.js":3,"./Analytics.js":4,"./ColumnGenerator.js":5}],7:[function(require,module,exports){
 'use strict';
 
 var AJAX = require('./ag_lib/js/modules/Ajax.js'),
+	Analytics = require('./modules/Analytics.js'),
     Portfolio = require('./modules/Portfolio.js');
+    
+    Analytics = new Analytics();
 
 var AG_Portfolio;
 
@@ -426,28 +572,22 @@ var main = {
 	
 	init: function(){
 		this.retrieveData();
-		this.init_analytics();
-	},
-	
-	init_analytics: function(){
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
-		ga('create', 'UA-17915017-11', 'auto');
-		ga('send', 'pageview');
+		Analytics.init();
 	},
 	
 	retrieveData: function(){
 		AJAX({
 			url: '/portfolio/portfolio.json',
 			type: 'GET',
-			done: function(data) {
+			done: function(results) {
 				
-				AG_Portfolio = new Portfolio(
-					document.getElementById('ag_portfolio'),
-					data
+				AG_Portfolio = new Portfolio( {
+					column_breaks: [750, 1100, 1395],
+					container: document.getElementById('ag_portfolio'),
+					data: JSON.parse(results),
+					img_directory: '/imgs/portfolio/',
+					show_pieces: ['voi', 'cinema_sign', 'you_twit', 'lanturn', 'mayfield', 'joy_to_all_people', 'jewelry_stand', 'radical', 'wedding', 'first_light', 'warthen_50', 'holiday_beacon', 'pixar_portal', 'apple', 'farrell_cabinhouse', 'griffin_firepit', 'pinwheel', 'johnson_sandbox', 'pumpkins', 'north_magazine', 'happy_place', 'cyber_warfare', 'faux_fox', 'johnson_firepit', 'creche', 'brandenburg_gate', 'penetration']
+					}
 				);
 				
 			}
@@ -457,4 +597,4 @@ var main = {
 }
 
 main.init();
-},{"./ag_lib/js/modules/Ajax.js":1,"./modules/Portfolio.js":4}]},{},[5]);
+},{"./ag_lib/js/modules/Ajax.js":1,"./modules/Analytics.js":4,"./modules/Portfolio.js":6}]},{},[7]);

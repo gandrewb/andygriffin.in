@@ -1,7 +1,10 @@
 'use strict';
 
 var AJAX = require('./ag_lib/js/modules/Ajax.js'),
+	Analytics = require('./modules/Analytics.js'),
     Portfolio = require('./modules/Portfolio.js');
+    
+    Analytics = new Analytics();
 
 var AG_Portfolio;
 
@@ -9,28 +12,22 @@ var main = {
 	
 	init: function(){
 		this.retrieveData();
-		this.init_analytics();
-	},
-	
-	init_analytics: function(){
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-		
-		ga('create', 'UA-17915017-11', 'auto');
-		ga('send', 'pageview');
+		Analytics.init();
 	},
 	
 	retrieveData: function(){
 		AJAX({
 			url: '/portfolio/portfolio.json',
 			type: 'GET',
-			done: function(data) {
+			done: function(results) {
 				
-				AG_Portfolio = new Portfolio(
-					document.getElementById('ag_portfolio'),
-					data
+				AG_Portfolio = new Portfolio( {
+					column_breaks: [750, 1100, 1395],
+					container: document.getElementById('ag_portfolio'),
+					data: JSON.parse(results),
+					img_directory: '/imgs/portfolio/',
+					show_pieces: ['voi', 'cinema_sign', 'you_twit', 'lanturn', 'mayfield', 'joy_to_all_people', 'jewelry_stand', 'radical', 'wedding', 'first_light', 'warthen_50', 'holiday_beacon', 'pixar_portal', 'apple', 'farrell_cabinhouse', 'griffin_firepit', 'pinwheel', 'johnson_sandbox', 'pumpkins', 'north_magazine', 'happy_place', 'cyber_warfare', 'faux_fox', 'johnson_firepit', 'creche', 'brandenburg_gate', 'penetration']
+					}
 				);
 				
 			}

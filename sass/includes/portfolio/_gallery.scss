@@ -1,8 +1,3 @@
-$gallery-gutter-l: 36px;
-$gallery-gutter-m: 26px;
-$gallery-gutter-s: 15px;
-
-
 .gallery {
 	padding-bottom: 7rem;
 	
@@ -39,27 +34,15 @@ $gallery-gutter-s: 15px;
 	}
 	
 	.portfolio_frame {
-		column-count: 4;
-		column-width: 340px;
-		column-gap: 0;
-		padding: 0 #{$gallery-gutter-l / 2};
-		line-height: 0;
-		margin: 0 auto;
 		max-width: 2000px;
-		text-align: center;
-	
 	}
 	
 	.thumbnail {
-		display: inline-block;
-		position: relative;
 		cursor: pointer;
-		margin: #{$gallery-gutter-l / 2} 0;
-		width: calc(100% - #{$gallery-gutter-l});
 		
 		img {
 			width: 100%;
-			border: solid 1px #aaa;
+			border: solid 1px $thumbnail-border;
 			border-radius: 5px;
 			transition: transform .15s linear;
 			will-change: auto;
@@ -99,30 +82,4 @@ $gallery-gutter-s: 15px;
 		}
 	}
 */
-
-	@include viewport(m){
-		.portfolio_frame {
-			column-count: 2;
-			column-width: auto;
-			padding: 0 #{$gallery-gutter-m / 2};
-		}
-		
-		.thumbnail {
-			margin: #{$gallery-gutter-m / 2} 0;
-			width: calc(100% - #{$gallery-gutter-m});
-		}
-	}
-	
-	@include viewport(s){		
-		.portfolio_frame {
-			column-width: 300px;
-			max-width: 565px;
-			padding: 0;
-		}
-		
-		.thumbnail {
-			margin: $gallery-gutter-s 0;
-			width: calc(100% - 16vw);
-		}
-	}
 }

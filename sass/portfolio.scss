@@ -1,7 +1,12 @@
-@import 'includes/base';
+$gallery-gutter-l: 36px;
+$gallery-gutter-m: 26px;
+$gallery-gutter-s: 15px;
 
 $sliver-align: calc(40% - 110px);
 $sliver-align-sm: 8vw;
+
+@import 'includes/base';
+@import 'includes/columns';
 
 .hero {
 	padding-bottom: 250px;

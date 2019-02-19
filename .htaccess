@@ -1,3 +1,6 @@
 RewriteEngine On
 RewriteCond %{HTTP_HOST} ^www.andygriff.in [NC]
-RewriteRule ^(.*)$ http://andygriff.in/$1 [L,R=301]
+RewriteRule ^(.*)$ https://andygriff.in/$1 [L,R=301]   #Forces non-www url
+
+RewriteCond    %{HTTPS}  off
+RewriteRule    ^(.*)$    https://andygriff.in/$1    [L,R=301]   #Forces https

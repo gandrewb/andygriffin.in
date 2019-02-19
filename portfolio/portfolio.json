@@ -4,9 +4,9 @@
 		"title": "Apple",
 		"year": "2012–2017",
 		"thumbnail": "app_store.jpg",
-		"description": "Over the course of 5 years at Apple, I designed and built a number of internal websites, apps, videos and games. I also worked as a front end developer on customer-facing sites on apple.com including: iMac, Mac mini, iPod touch, Apple Watch, macOS Sierra, iOS 11 and the App Store — and was assigned as lead developer on six of them.",
+		"description": "Over the course of 5 years at Apple, I designed and built a number of internal websites, apps, videos and games. I also worked as a front end developer on customer-facing sites on apple.com including: iMac, Mac mini, iPod touch, Apple Watch, macOS Sierra, iOS 11 and the App Store — and was assigned as lead developer on six of them. I am able to show more of this work in person.",
 		"directory": "apple",
-		"tags": ["2D", "app", "website"],
+		"tags": ["2D", "app", "UI", "website"],
 		"images": [
 			{"alt": "App Store Demo by Andy Griffin", "filename": "app_store_full.jpg"}
 		]
@@ -48,13 +48,27 @@
 		]
 	},
 	
+	"church_sign": {
+		"title": "Church Sign",
+		"year": 2018,
+		"thumbnail": "church_sign.png",
+		"description": "A redesigned monument sign for a church. Bottom panel is interchangeable for occasional schedule changes and illumination for nighttime visibility.",
+		"directory": "church_sign",
+		"tags": ["3D", "environmental graphics", "landscape architecture", "lighting"],
+		"images": [
+			{"alt": "Church Monument Sign by Andy Griffin", "filename": "church_sign_full.png"},
+			{"alt": "Church Monument Sign by Andy Griffin", "filename": "church_sign_alt.png"},
+			{"alt": "Church Monument Sign Illumination by Andy Griffin", "filename": "church_sign_lights.png"}
+		]
+	},
+	
 	"cinema_sign": {
 		"title": "Cinema Sign",
 		"year": 2015,
 		"thumbnail": "cinema_sign.jpg",
 		"description": "An electric sign I designed and built to imitate art-deco neon movie theater signs. It involved heavy design research, detailed construction schematics, woodworking, and electrical engineering and circuitry using electroluminescent wire.",
 		"directory": "cinema_sign",
-		"tags": ["3D", "environmental graphics", "lighting", "sculpture"],
+		"tags": ["3D", "environmental graphics", "lighting"],
 		"urls": [{"linktext": "How it was Made", "url": "/blog/article/because-neon"}],
 		"images": [
 			{"alt": "Neon Cinema Sign by Andy Griffin", "filename": "cinema_sign_full.jpg"},
@@ -68,7 +82,7 @@
 		"thumbnail": "creche.jpg",
 		"description": "A website I redesigned and improved for the annual nativity gallery in Palo Alto. The site is updated with both new content and a freshened design to match other marketing materials each year. I have both designed and coded the site each year since 2016.",
 		"directory": "christmas_creche",
-		"tags": ["2D", "website"],
+		"tags": ["2D", "UI", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://www.christmascreche.org"}],
 		"images": [
 			{"alt": "Christmas Crèche Exhibit Homepage by Andy Griffin", "filename": "creche_homepage.jpg"}
@@ -78,28 +92,15 @@
 	"cyber_warfare": {
 		"title": "Cyber Warfare",
 		"year": 2013,
-		"thumbnail": "cyber_ipad_app.png",
+		"thumbnail": "cyber_ipad_app.jpg",
 		"description": "A public exhibit comprised of both a wide-format infographic banner and an interactive web app that educate on both international and individual cyber security pitfalls and best practices. I designed the infographic and its curved display mechanism, and both designed and coded the web app.",
 		"directory": "cyber_warfare",
-		"tags": ["2D", "app", "environmental graphics"],
+		"tags": ["2D", "app", "environmental graphics", "UI"],
 		"images": [
 			{"alt": "Cyber Warfare Infographic Banner by Andy Griffin", "filename": "cyber_banner.png"},
 			{"alt": "Cyber Warfare Infographic Detail by Andy Griffin", "filename": "cyber_infographic_detail.jpg"},
 			{"alt": "Cyber Warfare Webapp Screens by Andy Griffin", "filename": "cyber_screens.jpg"},
 			{"alt": "Cyber Warfare Exhibit by Andy Griffin", "filename": "cyber_environmental.jpg"}
-		]
-	},
-	
-	"e_t": {
-		"title": "E.T.",
-		"year": 2017,
-		"thumbnail": "et.jpg",
-		"description": "A halloween pumpkin I sculpted and airbrushed to resemble E.T. from Steven Spielberg’s famous 1982 film of the same name.",
-		"directory": "et_pumpkin",
-		"tags": ["3D", "sculpture"],
-		"images": [
-			{"alt": "E.T. Pumpkin Sculpture by Andy Griffin", "filename": "et_full.jpg"},
-			{"alt": "E.T. Pumpkin Sculpture Unpainted by Andy Griffin", "filename": "et_paintless.jpg"}
 		]
 	},
 	
@@ -112,6 +113,18 @@
 		"tags": ["2D", "illustration"],
 		"images": [
 			{"alt": "Evil Elk Skull Illustration by Andy Griffin", "filename": "evil_elk_full.jpg"}
+		]
+	},
+	
+	"farrell_cabinhouse": {
+		"title": "Farrell Family Cabinhouse",
+		"year": 2019,
+		"thumbnail": "cabin_sign.jpg",
+		"description": "A homey family cabin sign, laser engraved in cherry.",
+		"directory": "farrell_cabinhouse",
+		"tags": ["2D", "environmental graphics", "illustration", "laser cut"],
+		"images": [
+			{"alt": "Cabinhouse Sign by Andy Griffin", "filename": "cabin_sign_full.jpg"}
 		]
 	},
 	
@@ -133,7 +146,7 @@
 		"thumbnail": "first_light.jpg",
 		"description": "An artwork that combines wood relief with stained glass styles to represent the central figures in the nativity story. A laser cutter was employed to cut and etch the designs in woods and colored acrylics. The piece is backlit with programmable LEDs in a custom diffuser box.",
 		"directory": "first_light_nativity",
-		"tags": ["3D", "lighting", "sculpture"],
+		"tags": ["3D", "laser cut", "lighting"],
 		"urls": [{"linktext": "How it was Made", "url": "/blog/article/first-light"}],
 		"images": [
 			{"alt": "First Light Sculpture by Andy Griffin", "filename": "first_light_full.jpg"},
@@ -197,14 +210,29 @@
 		"title": "Holiday Beacon",
 		"year": 2018,
 		"thumbnail": "holiday_beacon.jpg",
-		"description": "This edge-lit acrylic sign was designed to celebrate special occasions with a sleek beam of colored light. Interchangeable acrylic slabs feature designs for various special occasions that rest in a sturdy, angular walnut base. LED lighting allows for a range of color options to complement the occasion.",
+		"description": "This edge-lit acrylic sign was designed to celebrate special occasions with a sleek beam of colored light. Interchangeable acrylic slabs feature designs for various special occasions that rest in a sturdy, angular walnut base. LED lighting allows for a range of color options to complement the occasion. I designed and laser cut both the wooden stand and the acrylic slabs.",
 		"directory": "holiday_beacon",
-		"tags": ["3D", "environmental graphics", "lighting", "sculpture"],
+		"tags": ["3D", "environmental graphics", "laser cut", "lighting"],
 		"images": [
 			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "lightsaber.jpg"},
 			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "holiday_beacon_full.jpg"},
 			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "daylight_detail.jpg"},
 			{"alt": "Holiday Beacon Edge-lit Acrylic Sign by Andy Griffin", "filename": "glow_structure.jpg"}
+		]
+	},
+	
+	"jewelry_stand": {
+		"title": "Jewelry Display Stand",
+		"year": 2018,
+		"thumbnail": "jewelry_stand.jpg",
+		"description": "A laser cut jewelry stand designed to display a large collection of earrings, necklaces and rings.",
+		"directory": "jewelry_stand",
+		"tags": ["3D", "laser cut"],
+		"urls": [{"linktext": "Buy one on Etsy", "url": "https://www.etsy.com/listing/673144011/wood-jewelry-display-stand"}],
+		"images": [
+			{"alt": "Jewelry Display Stand by Andy Griffin", "filename": "jewelry_stand_full.jpg"},
+			{"alt": "Jewelry Display Earring Detail by Andy Griffin", "filename": "earring_detail.jpg"},
+			{"alt": "Jewelry Display Detail by Andy Griffin", "filename": "full_detail.jpg"}
 		]
 	},
 	
@@ -238,13 +266,29 @@
 		]
 	},
 	
+	"joy_to_all_people": {
+		"title": "Joy to All People",
+		"year": 2018,
+		"thumbnail": "joy_tower.jpg",
+		"description": "Tasked with designing a gallery space on a shoestring budget, I built a light tower, lanterns, ornaments and backdrops with reclaimed cardboard, laser-cut with a custom designed star lattice.",
+		"directory": "joy_to_all_people",
+		"tags": ["3D", "environmental graphics", "laser cut", "lighting"],
+		"urls": [{"linktext": "How it was Made", "url": "/blog/article/designing-joy"}],
+		"images": [
+			{"alt": "Joy to All People Cardboard Lattice Tower by Andy Griffin", "filename": "joy_tower_full.jpg"},
+			{"alt": "Laser-cut Cardboard Lanterns by Andy Griffin", "filename": "lanterns.jpg"},
+			{"alt": "Joy to All People Cardboard Lattice Tower by Andy Griffin", "filename": "take_the_joy.jpg"},
+			{"alt": "Star Lattice Pattern for Laser Cutting by Andy Griffin", "filename": "star_lattice.png"}
+		]
+	},
+	
 	"lanturn": {
 		"title": "Lanturn",
 		"year": 2018,
 		"thumbnail": "centerpiece.jpg",
 		"description": "An illuminated kinetic sculpture designed as a wedding table centerpiece. Candles within the upper basket both expel light and generate heat to spin the turbine. Digitally designed, cut from slabs of walnut by laser cutter, and reproduced for placement on each table at the party.",
 		"directory": "wedding_centerpiece",
-		"tags": ["3D", "lighting", "sculpture"],
+		"tags": ["3D", "laser cut", "lighting"],
 		"images": [
 			{"alt": "Lanturn Kinetic Light Sculpture by Andy Griffin", "filename": "glimmer_top_dark.jpg"},
 			{"alt": "Lanturn Kinetic Light Sculpture by Andy Griffin", "filename": "glimmer_top_light.jpg"}
@@ -257,24 +301,11 @@
 		"thumbnail": "mayfield_home.jpg",
 		"description": "For a number of years, I’ve built and expanded the brand system for this chamber choir — including the logo, website, signage, concert advertising, program leaflets and more. The website, which I both design and code, includes a custom music player and a donation feature.",
 		"directory": "mayfield_singers",
-		"tags": ["2D", "logo", "website"],
+		"tags": ["2D", "logo", "UI", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "https://www.mayfieldsingers.org"}, {"linktext": "How it was Made", "url": "/blog/article/voicing-the-keyboard"}],
 		"images": [
-			{"alt": "Mayfield Singers Homepage by Andy Griffin", "filename": "mayfield_home_full.jpg"},
-			{"alt": "Concert Invitations for Mayfield Singers by Andy Griffin", "filename": "fliers.jpg"}
-		]
-	},
-	
-	"nien_nunb": {
-		"title": "Nien Nunb",
-		"year": 2016,
-		"thumbnail": "nien_nunb.jpg",
-		"description": "A halloween pumpkin I sculpted and airbrushed to resemble Nien Nunb, a character featured in the Star Wars franchise.",
-		"directory": "nien_nunb_pumpkin",
-		"tags": ["3D", "sculpture"],
-		"images": [
-			{"alt": "Nien Nunb Pumpkin Sculpture by Andy Griffin", "filename": "nien_nunb_full.jpg"},
-			{"alt": "Nien Nunb Pumpkin Sculpture Before Paint by Andy Griffin", "filename": "nien_nunb_paintless.jpg"}
+			{"alt": "Concert Invitations for Mayfield Singers by Andy Griffin", "filename": "fliers.jpg"},
+			{"alt": "Mayfield Singers Homepage by Andy Griffin", "filename": "mayfield_home_full.jpg"}
 		]
 	},
  	
@@ -284,7 +315,7 @@
 		"thumbnail": "north_homepage.jpg",
 		"description": "An online publishing platform for an organization seeking to provide education and awareness on suicide and behavioral health. I both designed and coded the site based on an existing content management system. Heavy emphasis was placed on typographical design as a main element. Illustrations by Geraldine Sy and Tayrine Cruz.",
 		"directory": "north",
-		"tags": ["2D", "website"],
+		"tags": ["2D", "UI", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "https://north.voi.com"}],
 		"images": [
 			{"alt": "North Magazine Homepage by Andy Griffin", "filename": "north_homepage_full.jpg"},
@@ -322,12 +353,40 @@
 		"thumbnail": "pixar_portal_home.jpg",
 		"description": "A website I designed and coded that reports on news and rumors related to Pixar Animation Studios.",
 		"directory": "pixar_portal",
-		"tags": ["2D", "website"],
+		"tags": ["2D", "UI", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://www.pixarportal.com"}],
 		"images": [
 			{"alt": "Pixar Portal Homepage by Andy Griffin", "filename": "pixar_portal_home_full.jpg"},
 			{"alt": "Pixar Portal Mobile by Andy Griffin", "filename": "pixar_portal_mobile.jpg"},
 			{"alt": "Pixar Portal Movie Page by Andy Griffin", "filename": "pixar_portal_movie_page.jpg"}
+		]
+	},
+	
+	"produce_and_floral": {
+		"title": "Produce Department",
+		"year": 2019,
+		"thumbnail": "produce_and_floral.jpg",
+		"description": "A design for the produce and floral departments of a grocery store interior. It incorporates cues from the local Tudor architecture style and a living wall to directly advertise the sale of plantlife.",
+		"directory": "produce_dept",
+		"tags": ["3D", "environmental graphics", "illustration", "lighting"],
+		"images": [
+			{"alt": "Produce and Floral Grocery Department by Andy Griffin", "filename": "produce_and_floral_full.jpg"},
+			{"alt": "Produce Grocery Department by Andy Griffin", "filename": "produce.jpg"},
+			{"alt": "Floral Grocery Department by Andy Griffin", "filename": "floral.jpg"}
+		]
+	},
+	
+	"pumpkins": {
+		"title": "Pumpkin Sculptures",
+		"year": "2016–2018",
+		"thumbnail": "nien_nunb.jpg",
+		"description": "My annual pumpkin sculpting tradition has resulted recently in these carvings of Nien Nunb from Star Wars, E.T., and Anger from Inside Out.",
+		"directory": "pumpkins",
+		"tags": ["3D"],
+		"images": [
+			{"alt": "Nien Nunb Pumpkin Sculpture by Andy Griffin", "filename": "nien_nunb_full.jpg"},
+			{"alt": "E.T. Pumpkin Sculpture by Andy Griffin", "filename": "et_full.jpg"},
+			{"alt": "Anger from Inside Out Pumpkin Sculpture by Andy Griffin", "filename": "anger_full.jpg"}
 		]
 	},
 	
@@ -337,9 +396,21 @@
 		"thumbnail": "radical.jpg",
 		"description": "A working calendar app prototype that visualizes the day’s appointments in a clock-like display. It won first place in the Information Technology category of the Research and Creative Works Conference at BYU-Idaho.",
 		"directory": "radical",
-		"tags": ["2D", "app"],
+		"tags": ["2D", "app", "UI"],
 		"images": [
 			{"alt": "RadiCal Calendar App by Andy Griffin", "filename": "radical_full.jpg"}
+		]
+	},
+	
+	"tiniest_ghoul": {
+		"title": "Tiniest Ghoul",
+		"year": 2018,
+		"thumbnail": "tiniest_ghoul_poem.png",
+		"description": "The tiniest ghoul at the door,<br> had not Halloweened heretofore.<br> Bag with goodies inside,<br> she was quick to decide<br> naught but candy to eat evermore.",
+		"directory": "tiniest_ghoul",
+		"tags": ["2D", "illustration"],
+		"images": [
+			{"alt": "Tiniest Ghoul Poem by Andy Griffin", "filename": "tiniest_ghoul_poem.png"}
 		]
 	},
 	
@@ -361,7 +432,7 @@
 		"thumbnail": "voi_home.jpg",
 		"description": "A homepage design developed for a company working in suicide prevention. A desire to incorporate humanity and storytelling drove this design to replace a page that was originally product and sales-heavy. I both designed the page and wrote the content.",
 		"directory": "voi",
-		"tags": ["2D", "website"],
+		"tags": ["2D", "UI", "website"],
 		"images": [
 			{"alt": "Voi Homepage by Andy Griffin", "filename": "voi_home_full.jpg"}
 		]
@@ -386,7 +457,7 @@
 		"thumbnail": "wedding_homepage.jpg",
 		"description": "A website, logo, printed invitations, laser-cut party favors, and signage as part of a brand system developed for my wedding when my wife, Chloe, and I got married.",
 		"directory": "wedding",
-		"tags": ["2D", "environmental graphics", "logo", "website"],
+		"tags": ["2D", "environmental graphics", "laser cut", "logo", "UI", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://chloeandandy.com"}],
 		"images": [
 			{"alt": "Wedding Logo by Andy Griffin", "filename": "ca_logo.png"},

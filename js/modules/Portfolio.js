@@ -1,16 +1,24 @@
 'use strict';
 
+var Analytics = require('./Analytics.js');
+Analytics = new Analytics();
+
 var Dom = require('./../ag_lib/js/modules/Dom.js');
 Dom = new Dom();
 
 var Url = require('./../ag_lib/js/modules/Url.js');
 Url = new Url();
 
-function Portfolio(container_el, data) {
-	this.el = container_el;
-	this.projects = JSON.parse(data).projects;
+var Columns = require('./ColumnGenerator.js');
+
+function Portfolio(options) {
+	this.el = options.container;
+	this.projects = options.data.projects; // project info from db
+	this.show_pieces = options.show_pieces; // names of pieces from db to show
+	this.visible_elements = []; // references to elements visible after filtering, passed to columns
+	this.img_directory = options.img_directory || '/imgs/';
 	
-	this.thumbnails = this.el.querySelectorAll('[data-portfolio_detail]');
+	this.portfolio_frame = document.getElementById('portfolio_frame');
 	this.close_details = document.getElementById('close_details');
 	
 	this.detail_pane = document.getElementById('detail_pane');
@@ -28,7 +36,8 @@ function Portfolio(container_el, data) {
 	
 	this._checkPortfolioVar();
 	this._detailsTriggers();
-	this._analyzeData(this.projects);
+	this._analyzeData();
+	this._initCols();
 	this._createTags(this.el, this.tags);
 }
 
@@ -41,27 +50,20 @@ proto.filterByTag = function(tag) {
 	this._updateTagTriggers();
 	this._updateThumbnails();
 	
-	this._analyticsEvent('Filter By Tag', tag);
+	Analytics.recordEvent('Portfolio', 'Filter By Tag', tag);
 };
 
 
 
 
-proto._analyticsEvent = function(action, label){
-	if(window.ga) {
-		ga('send', {
-			hitType: 'event',
-			eventCategory: 'Portfolio',
-			eventAction: action,
-			eventLabel: label
-		});
-	}
-};
-
-
-proto._analyzeData = function(data) {
-	for (var project in data) {
-		this._populateTags(data[project].tags);
+proto._analyzeData = function() {
+	for (var i=0, len=this.show_pieces.length; i<len; i++) {
+		var key = this.show_pieces[i];
+		var project = this.projects[key];
+		
+		this._populateTags(project.tags);
+		project.el = this._createPortfolioItem(key, project);
+		this.visible_elements.push(project.el);
 	}
 	this.tags.sort()
 };
@@ -93,11 +95,33 @@ proto._createImageReel = function(el, dir, list) {
 			type: 'img',
 			attributes: {
 				'alt': list[i].alt,
-				'src': '/imgs/portfolio/' + dir + '/' + list[i].filename
+				'src': this.img_directory + dir + '/' + list[i].filename
 			}
 		});
 		el.appendChild(img);
 	}
+};
+
+
+proto._createPortfolioItem = function(key, project) {
+	var fig = Dom.createElement({
+		type: 'figure',
+		attributes: {
+			'class': 'thumbnail'
+		}
+	});
+	var img = Dom.createElement({
+		type: 'img',
+		attributes: {
+			'src': this.img_directory + project.directory + '/' + project.thumbnail,
+			'alt': project.title + ' — by Andy Griffin'
+		}
+	});
+	
+	fig.addEventListener('click', function() { this._openPortfolio(key) }.bind(this));
+	
+	fig.appendChild(img);
+	return fig;
 };
 
 
@@ -132,7 +156,8 @@ proto._createLink = function(url, text) {
 	var a = Dom.createElement({
 		type: 'a',
 		attributes: {
-			'href': url
+			'href': url,
+			'class': 'arrow_link'
 		},
 		textnode: text
 	});
@@ -151,29 +176,27 @@ proto._createLinkList = function(el, list){
 };
 
 
-proto._detailBtnClick = function(e) {
-	var key = e.currentTarget.dataset.portfolio_detail;
-	
-	Url.addVariables({
-		vars: [{key: 'portfolio', val: key}],
-		title: this.projects[key].title,
-		history: false
-	});
-	
-	this._openPortfolio(key);
-};
-
-
 proto._detailsTriggers = function() {
-	for(var i=0, len = this.thumbnails.length; i<len; i++) {
-		this.thumbnails[i].addEventListener('click', this._detailBtnClick.bind(this));
-	}
-	
 	this.close_details.addEventListener('click', this._closeDetails.bind(this));
 };
 
 
+proto._initCols = function() {
+	Columns = new Columns({
+		column_breaks: [700, 1000, 1400],
+		content: this.visible_elements,
+		element: this.portfolio_frame
+	});
+};
+
+
 proto._openPortfolio = function(projectkey) {
+
+	Url.addVariables({
+		vars: [{key: 'portfolio', val: projectkey}],
+		title: this.projects[projectkey].title,
+		history: false
+	});
 
 	var project = this.projects[projectkey];
 	
@@ -195,7 +218,7 @@ proto._openPortfolio = function(projectkey) {
 	
 	document.documentElement.classList.add('modal-open');
 	
-	this._analyticsEvent('Open Project Detail', projectkey);
+	Analytics.recordEvent('Portfolio', 'Open Project Detail', projectkey);
 
 };
 
@@ -220,29 +243,27 @@ proto._updateTagTriggers = function() {
 
 
 proto._updateThumbnails = function() {
-	for (var i=0, len = this.thumbnails.length; i<len; i++) {
-		
-		var thm = this.thumbnails[i];
+	this.visible_elements = [];
+	
+	for (var i=0, len = this.show_pieces.length; i<len; i++) {
+		var project = this.projects[this.show_pieces[i]];
+		var thm = project.el;
 		
 		if (this.selected_tag=='') { 
-			thm.classList.remove('hidden'); 
+			this.visible_elements.push(thm);
 		} 
 		
-		else {
-			var key = thm.dataset.portfolio_detail;
-			
+		else {			
 			if (
-				this.projects[key] !== undefined &&
-				this.projects[key].tags.indexOf(this.selected_tag) > -1
+				project !== undefined &&
+				project.tags.indexOf(this.selected_tag) > -1
 			) { 
-				thm.classList.remove('hidden'); 
-			}
-			
-			else {
-				thm.classList.add('hidden');
+				this.visible_elements.push(thm);
 			}
 		}
 	}
+	
+	Columns.updateContent(this.visible_elements);
 };
 
 

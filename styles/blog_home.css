@@ -79,6 +79,18 @@ p {
   padding: 0 3vw;
   position: relative; }
 
+.arrow_link {
+  color: #cc3300;
+  text-decoration: none;
+  margin-right: -1.5em; }
+  .arrow_link:after {
+    content: url("../imgs/arrow.svg");
+    display: inline-block;
+    width: .833em;
+    margin: 1px 0 0 .25em; }
+  .arrow_link:hover {
+    text-decoration: underline; }
+
 html {
   background-image: url("/imgs/sliver.svg"), linear-gradient(#fff 90vh, #eee 210vh);
   background-position: 0px 0px;
@@ -90,11 +102,13 @@ html {
       background-position: calc(50% - 388px) top, left top; } }
 
 .portfolio_page .portfolio_link,
-.blog_page .blog_link {
+.blog_page .blog_link,
+.store_page .store_link {
   background-color: #fad6ae;
   cursor: default; }
   .portfolio_page .portfolio_link:hover,
-  .blog_page .blog_link:hover {
+  .blog_page .blog_link:hover,
+  .store_page .store_link:hover {
     text-decoration: none; }
 
 .ag_header {
@@ -139,6 +153,10 @@ html {
       background-image: url(../imgs/social_icons/etsy_icon_b.svg); }
       .ag_header .social .icon-etsy:hover {
         background-image: url(../imgs/social_icons/etsy_icon.svg); }
+    .ag_header .social .icon-instagram {
+      background-image: url(../imgs/social_icons/instagram_icon_b.svg); }
+      .ag_header .social .icon-instagram:hover {
+        background-image: url(../imgs/social_icons/instagram_icon.svg); }
     .ag_header .social .icon-itunes {
       background-image: url(../imgs/social_icons/itunes_icon_b.svg); }
       .ag_header .social .icon-itunes:hover {
@@ -183,7 +201,8 @@ html {
         width: 150px; } }
   @media screen and (max-width: 750px) {
     .ag_header {
-      padding-bottom: 125px; }
+      padding-bottom: 125px;
+      overflow: hidden; }
       .ag_header nav {
         font-size: 14px; }
       .ag_header .social [class*="icon-"] {
@@ -215,7 +234,8 @@ main {
       margin-left: 8vw; } }
 
 .blog_index {
-  margin: 2.5em 0 8em; }
+  margin: 2.5em 0 8em;
+  min-height: 50vh; }
   .blog_index .article_link {
     padding: 1.5em 0 1.4em;
     border-bottom: solid 1px #eee;
@@ -228,17 +248,5 @@ main {
     line-height: 2;
     flex: 0 0 7.5em;
     font-size: .75em; }
-  .blog_index a {
-    text-decoration: none;
-    color: #cc3300; }
-    .blog_index a:hover {
-      text-decoration: underline; }
-    .blog_index a:after {
-      content: url("/imgs/arrow.svg");
-      display: inline-block;
-      width: 19px;
-      margin-left: .25em;
-      position: relative;
-      top: 1px; }
 
 /*# sourceMappingURL=blog_home.css.map */

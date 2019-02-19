@@ -68,6 +68,18 @@ p {
   padding: 0 3vw;
   position: relative; }
 
+.arrow_link {
+  color: #cc3300;
+  text-decoration: none;
+  margin-right: -1.5em; }
+  .arrow_link:after {
+    content: url("../imgs/arrow.svg");
+    display: inline-block;
+    width: .833em;
+    margin: 1px 0 0 .25em; }
+  .arrow_link:hover {
+    text-decoration: underline; }
+
 html {
   background-image: url("/imgs/sliver.svg"), linear-gradient(#fff 90vh, #eee 210vh);
   background-position: 0px 0px;
@@ -79,11 +91,13 @@ html {
       background-position: calc(50% - 388px) top, left top; } }
 
 .portfolio_page .portfolio_link,
-.blog_page .blog_link {
+.blog_page .blog_link,
+.store_page .store_link {
   background-color: #fad6ae;
   cursor: default; }
   .portfolio_page .portfolio_link:hover,
-  .blog_page .blog_link:hover {
+  .blog_page .blog_link:hover,
+  .store_page .store_link:hover {
     text-decoration: none; }
 
 .ag_header {
@@ -128,6 +142,10 @@ html {
       background-image: url(../imgs/social_icons/etsy_icon_b.svg); }
       .ag_header .social .icon-etsy:hover {
         background-image: url(../imgs/social_icons/etsy_icon.svg); }
+    .ag_header .social .icon-instagram {
+      background-image: url(../imgs/social_icons/instagram_icon_b.svg); }
+      .ag_header .social .icon-instagram:hover {
+        background-image: url(../imgs/social_icons/instagram_icon.svg); }
     .ag_header .social .icon-itunes {
       background-image: url(../imgs/social_icons/itunes_icon_b.svg); }
       .ag_header .social .icon-itunes:hover {
@@ -172,7 +190,8 @@ html {
         width: 150px; } }
   @media screen and (max-width: 750px) {
     .ag_header {
-      padding-bottom: 125px; }
+      padding-bottom: 125px;
+      overflow: hidden; }
       .ag_header nav {
         font-size: 14px; }
       .ag_header .social [class*="icon-"] {
@@ -194,6 +213,33 @@ html {
   padding: 2rem;
   text-align: center;
   font-size: .9rem; }
+
+.columns {
+  display: flex;
+  padding: 0 18px;
+  line-height: 0;
+  margin: 0 auto;
+  text-align: center; }
+  .columns .col {
+    flex: 1; }
+    .columns .col > * {
+      display: inline-block;
+      position: relative;
+      margin: 18px 0;
+      width: calc(100% - 36px); }
+  @media screen and (max-width: 1100px) {
+    .columns {
+      padding: 0 13px; }
+      .columns .col > * {
+        margin: 13px 0;
+        width: calc(100% - 26px); } }
+  @media screen and (max-width: 750px) {
+    .columns {
+      max-width: 565px;
+      padding: 0; }
+      .columns .col > * {
+        margin: 15px 0;
+        width: calc(100% - 16vw); } }
 
 .hero {
   padding-bottom: 250px;
@@ -270,20 +316,9 @@ html {
       border-color: #000;
       background-color: #ffc69d; }
   .gallery .portfolio_frame {
-    column-count: 4;
-    column-width: 340px;
-    column-gap: 0;
-    padding: 0 18px;
-    line-height: 0;
-    margin: 0 auto;
-    max-width: 2000px;
-    text-align: center; }
+    max-width: 2000px; }
   .gallery .thumbnail {
-    display: inline-block;
-    position: relative;
-    cursor: pointer;
-    margin: 18px 0;
-    width: calc(100% - 36px); }
+    cursor: pointer; }
     .gallery .thumbnail img {
       width: 100%;
       border: solid 1px #aaa;
@@ -294,22 +329,6 @@ html {
         transform: scale(1.045); }
     .gallery .thumbnail.hidden {
       display: none; }
-  @media screen and (max-width: 1100px) {
-    .gallery .portfolio_frame {
-      column-count: 2;
-      column-width: auto;
-      padding: 0 13px; }
-    .gallery .thumbnail {
-      margin: 13px 0;
-      width: calc(100% - 26px); } }
-  @media screen and (max-width: 750px) {
-    .gallery .portfolio_frame {
-      column-width: 300px;
-      max-width: 565px;
-      padding: 0; }
-    .gallery .thumbnail {
-      margin: 15px 0;
-      width: calc(100% - 16vw); } }
 
 html.modal-open, html.modal-open body {
   overflow: hidden; }
@@ -370,16 +389,6 @@ html.modal-open, html.modal-open body {
       font-size: .9em; }
       .detail_pane .details .project_linklist li {
         margin-bottom: .5em; }
-      .detail_pane .details .project_linklist a {
-        color: #cc3300;
-        text-decoration: none; }
-        .detail_pane .details .project_linklist a:after {
-          content: url("../imgs/arrow.svg");
-          display: inline-block;
-          width: 15px;
-          margin: 1px 0 0 .25em; }
-        .detail_pane .details .project_linklist a:hover {
-          text-decoration: underline; }
     .detail_pane .details > *:empty {
       display: none; }
   .detail_pane .reel_frame {
@@ -427,6 +436,7 @@ html.modal-open, html.modal-open body {
         border-left: none;
         display: block; }
         .detail_pane .reel_frame .image_reel {
-          max-height: none; } }
+          max-height: none;
+          overflow: visible; } }
 
 /*# sourceMappingURL=portfolio.css.map */

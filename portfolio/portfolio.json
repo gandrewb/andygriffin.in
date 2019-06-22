@@ -4,11 +4,13 @@
 		"title": "Apple",
 		"year": "2012–2017",
 		"thumbnail": "app_store.jpg",
-		"description": "Over the course of 5 years at Apple, I designed and built a number of internal websites, apps, videos and games. I also worked as a front end developer on customer-facing sites on apple.com including: iMac, Mac mini, iPod touch, Apple Watch, macOS Sierra, iOS 11 and the App Store — and was assigned as lead developer on six of them. I am able to show more of this work in person.",
+		"description": "During my 5 years at Apple, I designed and built a number of internal websites, apps, videos and games. I also worked as a front end developer on customer-facing sites on apple.com including: iMac, Mac mini, iPod touch, Apple Watch, macOS Sierra, iOS 11 and the App Store — and was assigned as lead developer on six of them. I became known for my expertise in animation and data visualization.",
 		"directory": "apple",
-		"tags": ["2D", "app", "UI", "website"],
+		"tags": ["2D", "app", "UX", "website"],
+		"urls": [{"linktext": "See Additional Details", "url": "/portfolio/apple"}],
 		"images": [
-			{"alt": "App Store Demo by Andy Griffin", "filename": "app_store_full.jpg"}
+			{"isVideo": "true", "properties": "autoplay, loop, muted", "filename": "imac_color_animation.m4v"},
+			{"isVideo": "true", "properties": "autoplay, loop, muted", "filename": "app_store_preview.m4v"}
 		]
 	},
 	
@@ -21,6 +23,33 @@
 		"tags": ["2D", "logo"],
 		"images": [
 			{"alt": "Blues Logo by Andy Griffin", "filename": "blues_logo_full.png"}
+		]
+	},
+	
+	"bomc": {
+		"title": "ScripturePlus App",
+		"year": 2019,
+		"thumbnail": "bomc.jpg",
+		"description": "An app that provides supplemental information for scripture study. Product design and logo commissioned by a non-profit religious organization.",
+		"directory": "bomc",
+		"tags": ["2D", "UX", "app", "logo"],
+		"urls": [{"linktext": "See Interactive Prototype", "url": "https://sketch.cloud/s/1L8Qw/a/j0Oop9/play"}],
+		"images": [
+			{"alt": "ScripturePlus App Design by Andy Griffin", "filename": "bomc_detail_1.jpg"},
+			{"alt": "ScripturePlus App Design by Andy Griffin", "filename": "bomc_detail_2.jpg"}
+		]
+	},
+	
+	"bonnaroo": {
+		"title": "Bonnaroo Gift",
+		"year": 2019,
+		"thumbnail": "bonnaroo.png",
+		"description": "A party favor for a group of friends attending the Bonnaroo music festival together. It was eventually laser engraved onto Cherry wood as a keychain.",
+		"directory": "bonnaroo",
+		"tags": ["2D", "illustration", "laser cut"],
+		"images": [
+			{"alt": "Bonnaroo 2019 Design by Andy Griffin", "filename": "bonnaroo_colors.png"},
+			{"alt": "Bonnaroo 2019 Keychain by Andy Griffin", "filename": "bonnaroo_lasered.jpg"}
 		]
 	},
 	
@@ -82,7 +111,7 @@
 		"thumbnail": "creche.jpg",
 		"description": "A website I redesigned and improved for the annual nativity gallery in Palo Alto. The site is updated with both new content and a freshened design to match other marketing materials each year. I have both designed and coded the site each year since 2016.",
 		"directory": "christmas_creche",
-		"tags": ["2D", "UI", "website"],
+		"tags": ["2D", "UX", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://www.christmascreche.org"}],
 		"images": [
 			{"alt": "Christmas Crèche Exhibit Homepage by Andy Griffin", "filename": "creche_homepage.jpg"}
@@ -95,12 +124,12 @@
 		"thumbnail": "cyber_ipad_app.jpg",
 		"description": "A public exhibit comprised of both a wide-format infographic banner and an interactive web app that educate on both international and individual cyber security pitfalls and best practices. I designed the infographic and its curved display mechanism, and both designed and coded the web app.",
 		"directory": "cyber_warfare",
-		"tags": ["2D", "app", "environmental graphics", "UI"],
+		"tags": ["2D", "app", "environmental graphics", "UX"],
 		"images": [
-			{"alt": "Cyber Warfare Infographic Banner by Andy Griffin", "filename": "cyber_banner.png"},
+			{"alt": "Cyber Warfare Exhibit by Andy Griffin", "filename": "cyber_environmental.jpg"},
 			{"alt": "Cyber Warfare Infographic Detail by Andy Griffin", "filename": "cyber_infographic_detail.jpg"},
 			{"alt": "Cyber Warfare Webapp Screens by Andy Griffin", "filename": "cyber_screens.jpg"},
-			{"alt": "Cyber Warfare Exhibit by Andy Griffin", "filename": "cyber_environmental.jpg"}
+			{"alt": "Cyber Warfare Infographic Banner by Andy Griffin", "filename": "cyber_banner.png"}
 		]
 	},
 	
@@ -116,15 +145,17 @@
 		]
 	},
 	
-	"farrell_cabinhouse": {
-		"title": "Farrell Family Cabinhouse",
+	"family_signs": {
+		"title": "Family Decor Signs",
 		"year": 2019,
 		"thumbnail": "cabin_sign.jpg",
-		"description": "A homey family cabin sign, laser engraved in cherry.",
-		"directory": "farrell_cabinhouse",
+		"description": "Signs celebrating dwellings and commemorating special family events. Laser cut and engraved in beautiful slabs of cherry.",
+		"directory": "family_signs",
 		"tags": ["2D", "environmental graphics", "illustration", "laser cut"],
 		"images": [
-			{"alt": "Cabinhouse Sign by Andy Griffin", "filename": "cabin_sign_full.jpg"}
+			{"alt": "Cabinhouse Sign by Andy Griffin", "filename": "cabin_sign_full.jpg"},
+			{"alt": "Leonard Family Sign by Andy Griffin", "filename": "leonard_sign.jpg"},
+			{"alt": "Mueller Family Sign by Andy Griffin", "filename": "mueller_sign.jpg"}
 		]
 	},
 	
@@ -301,7 +332,7 @@
 		"thumbnail": "mayfield_home.jpg",
 		"description": "For a number of years, I’ve built and expanded the brand system for this chamber choir — including the logo, website, signage, concert advertising, program leaflets and more. The website, which I both design and code, includes a custom music player and a donation feature.",
 		"directory": "mayfield_singers",
-		"tags": ["2D", "logo", "UI", "website"],
+		"tags": ["2D", "logo", "UX", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "https://www.mayfieldsingers.org"}, {"linktext": "How it was Made", "url": "/blog/article/voicing-the-keyboard"}],
 		"images": [
 			{"alt": "Concert Invitations for Mayfield Singers by Andy Griffin", "filename": "fliers.jpg"},
@@ -315,7 +346,7 @@
 		"thumbnail": "north_homepage.jpg",
 		"description": "An online publishing platform for an organization seeking to provide education and awareness on suicide and behavioral health. I both designed and coded the site based on an existing content management system. Heavy emphasis was placed on typographical design as a main element. Illustrations by Geraldine Sy and Tayrine Cruz.",
 		"directory": "north",
-		"tags": ["2D", "UI", "website"],
+		"tags": ["2D", "UX", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "https://north.voi.com"}],
 		"images": [
 			{"alt": "North Magazine Homepage by Andy Griffin", "filename": "north_homepage_full.jpg"},
@@ -353,7 +384,7 @@
 		"thumbnail": "pixar_portal_home.jpg",
 		"description": "A website I designed and coded that reports on news and rumors related to Pixar Animation Studios.",
 		"directory": "pixar_portal",
-		"tags": ["2D", "UI", "website"],
+		"tags": ["2D", "UX", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://www.pixarportal.com"}],
 		"images": [
 			{"alt": "Pixar Portal Homepage by Andy Griffin", "filename": "pixar_portal_home_full.jpg"},
@@ -396,7 +427,7 @@
 		"thumbnail": "radical.jpg",
 		"description": "A working calendar app prototype that visualizes the day’s appointments in a clock-like display. It won first place in the Information Technology category of the Research and Creative Works Conference at BYU-Idaho.",
 		"directory": "radical",
-		"tags": ["2D", "app", "UI"],
+		"tags": ["2D", "app", "UX"],
 		"images": [
 			{"alt": "RadiCal Calendar App by Andy Griffin", "filename": "radical_full.jpg"}
 		]
@@ -426,13 +457,25 @@
 		]
 	},
 	
+	"tynkerings_logo": {
+		"title": "Tynkerings Logo",
+		"year": 2019,
+		"thumbnail": "tynkerings_logo.png",
+		"description": "A logo designed for a 3D printing service whose founder’s name is Ty.",
+		"directory": "tynkerings_logo",
+		"tags": ["2D", "logo"],
+		"images": [
+			{"alt": "Tynkerings Logo by Andy Griffin", "filename": "tynkerings_logo_full.png"}
+		]
+	},
+	
 	"voi": {
 		"title": "Voi",
 		"year": 2018,
 		"thumbnail": "voi_home.jpg",
 		"description": "A homepage design developed for a company working in suicide prevention. A desire to incorporate humanity and storytelling drove this design to replace a page that was originally product and sales-heavy. I both designed the page and wrote the content.",
 		"directory": "voi",
-		"tags": ["2D", "UI", "website"],
+		"tags": ["2D", "UX", "website"],
 		"images": [
 			{"alt": "Voi Homepage by Andy Griffin", "filename": "voi_home_full.jpg"}
 		]
@@ -457,7 +500,7 @@
 		"thumbnail": "wedding_homepage.jpg",
 		"description": "A website, logo, printed invitations, laser-cut party favors, and signage as part of a brand system developed for my wedding when my wife, Chloe, and I got married.",
 		"directory": "wedding",
-		"tags": ["2D", "environmental graphics", "laser cut", "logo", "UI", "website"],
+		"tags": ["2D", "environmental graphics", "laser cut", "logo", "UX", "website"],
 		"urls": [{"linktext": "Visit the Site", "url": "http://chloeandandy.com"}],
 		"images": [
 			{"alt": "Wedding Logo by Andy Griffin", "filename": "ca_logo.png"},

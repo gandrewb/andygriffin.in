@@ -287,6 +287,7 @@ function Portfolio(options) {
 	this.projects = options.data.projects; // project info from db
 	this.show_pieces = options.show_pieces; // names of pieces from db to show
 	this.visible_elements = []; // references to elements visible after filtering, passed to columns
+	this.column_breaks = options.column_breaks;
 	this.img_directory = options.img_directory || '/imgs/';
 	
 	this.portfolio_frame = document.getElementById('portfolio_frame');
@@ -362,15 +363,45 @@ proto._closeDetails = function(e) {
 
 proto._createImageReel = function(el, dir, list) {
 	for (var i=0, len = list.length; i<len; i++){
-		var img = Dom.createElement({
-			type: 'img',
-			attributes: {
-				'alt': list[i].alt,
-				'src': this.img_directory + dir + '/' + list[i].filename
-			}
-		});
+		var img;
+		
+		if(list[i].isVideo) {
+			img = this._createVideo(dir, list[i]);
+		} else {
+			img = this._createImage(dir, list[i]);
+		}
+		
 		el.appendChild(img);
 	}
+};
+
+
+proto._createImage = function(dir, item) {
+	return Dom.createElement({
+		type: 'img',
+		attributes: {
+			'alt': item.alt,
+			'src': this.img_directory + dir + '/' + item.filename
+		}
+	});
+};
+
+
+proto._createVideo = function(dir, item) {
+	var vid_attributes = {
+		'src': this.img_directory + dir + '/' + item.filename
+	};
+	
+	var attr = item.properties.split(", ");
+	
+	for (var i=0, len = attr.length; i<len; i++){
+		vid_attributes[attr[i]] = '';
+	}
+	
+	return Dom.createElement({
+		type: 'video',
+		attributes: vid_attributes
+	});
 };
 
 
@@ -454,7 +485,7 @@ proto._detailsTriggers = function() {
 
 proto._initCols = function() {
 	Columns = new Columns({
-		column_breaks: [700, 1000, 1400],
+		column_breaks: this.column_breaks,
 		content: this.visible_elements,
 		element: this.portfolio_frame
 	});
@@ -586,7 +617,7 @@ var main = {
 					container: document.getElementById('ag_portfolio'),
 					data: JSON.parse(results),
 					img_directory: '/imgs/portfolio/',
-					show_pieces: ['voi', 'cinema_sign', 'you_twit', 'lanturn', 'mayfield', 'joy_to_all_people', 'jewelry_stand', 'radical', 'wedding', 'first_light', 'warthen_50', 'holiday_beacon', 'pixar_portal', 'apple', 'farrell_cabinhouse', 'griffin_firepit', 'pinwheel', 'johnson_sandbox', 'pumpkins', 'north_magazine', 'happy_place', 'cyber_warfare', 'faux_fox', 'johnson_firepit', 'creche', 'brandenburg_gate', 'penetration']
+					show_pieces: ['voi', 'cinema_sign', 'mayfield', 'lanturn', 'bonnaroo', 'radical', 'joy_to_all_people', 'apple', 'wedding', 'warthen_50', 'first_light', 'produce_and_floral', 'bomc', 'you_twit', 'family_signs', 'north_magazine', 'pinwheel', 'happy_place', 'pumpkins', 'jewelry_stand', 'pixar_portal', 'faux_fox', 'holiday_beacon', 'cyber_warfare', 'creche', 'penetration']
 					}
 				);
 				

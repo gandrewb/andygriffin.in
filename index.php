@@ -16,7 +16,7 @@
 	<main>
 		<section class="hero">
 			<h2>Andy Griffin</h2>
-			<p class="intro">With years of experience in web and graphic design, including 5 years at Apple, I’m seeking new opportunities in interaction design and environmental graphics. If you know of any, <a href="mailto:griffinandyb@gmail.com?subject=About Your Portfolio">let’s talk</a>.</p>
+			<p class="intro">With years of experience in web and graphic design, including 5 years at Apple, I’m seeking new opportunities in product design and environmental graphics. If you know of any, <a href="mailto:griffinandyb@gmail.com?subject=About Your Portfolio">let’s talk</a>.</p>
 		</section>
 		
 		<section class="gallery" id="ag_portfolio">

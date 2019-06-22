@@ -26,7 +26,7 @@ var main = {
 					container: document.getElementById('ag_portfolio'),
 					data: JSON.parse(results),
 					img_directory: '/imgs/portfolio/',
-					show_pieces: ['voi', 'cinema_sign', 'you_twit', 'lanturn', 'mayfield', 'joy_to_all_people', 'jewelry_stand', 'radical', 'wedding', 'first_light', 'warthen_50', 'holiday_beacon', 'pixar_portal', 'apple', 'farrell_cabinhouse', 'griffin_firepit', 'pinwheel', 'johnson_sandbox', 'pumpkins', 'north_magazine', 'happy_place', 'cyber_warfare', 'faux_fox', 'johnson_firepit', 'creche', 'brandenburg_gate', 'penetration']
+					show_pieces: ['voi', 'cinema_sign', 'mayfield', 'lanturn', 'bonnaroo', 'radical', 'joy_to_all_people', 'apple', 'wedding', 'warthen_50', 'first_light', 'produce_and_floral', 'bomc', 'you_twit', 'family_signs', 'north_magazine', 'pinwheel', 'happy_place', 'pumpkins', 'jewelry_stand', 'pixar_portal', 'faux_fox', 'holiday_beacon', 'cyber_warfare', 'creche', 'penetration']
 					}
 				);
 				

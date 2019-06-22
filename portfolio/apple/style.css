@@ -1,0 +1,182 @@
+/* Element Defaults */
+
+html {
+	font-family: 'SF Pro', 'SF Hello', -apple-system, 'Helvetica Neue', Helvetica;
+	font-size: 21px;
+	font-weight: 300;
+	color: #444;
+}
+
+body {
+	margin: 0;
+}
+
+a {
+	color: hsl(220, 50%, 55%);
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+
+p {
+	max-width: 40em;
+	line-height: 1.4;
+}
+
+h1, h2, h3 {
+	font-weight: 500;
+	line-height: 1;
+}
+h1 {
+	font-size: 2.4rem;
+	margin-top: 0;
+}
+h2 {
+	font-weight: 500;
+	text-transform: uppercase;
+	font-size: 1.3rem;
+	margin: -.75em 0 1.75em 0;
+}
+h3 {
+	font-size: 1.3rem;
+	margin-bottom: 1em;
+}
+
+ul {
+	list-style: circle;
+	list-style-position: inside;
+	text-align: left;
+	column-count: 2;
+	margin: 2.5em 0 0;
+	padding: 0;
+}
+
+li {
+	margin: 0 0 .75em;
+}
+
+header,
+section {
+	padding: 8vw 4vw;
+}
+
+section {
+	text-align: center;
+}
+section p {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 36em;
+}
+
+
+
+/* Content Specifics */
+
+.content {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.legal {
+	font-size: 75%;
+	text-align: left;
+	color: #666;
+	margin: .5em 0 4em 1.2em;
+}
+
+header,
+section:nth-of-type(even) {
+	background-color: hsl(240, 10%, 97%);
+}
+
+img.ipad {
+	position: relative;
+	max-width: 100%;
+	margin: -4vw 0 0;
+}
+
+img.iphone {
+	position: relative;
+	width: 100%;
+	max-width: 450px;
+	margin: -4vw 0 0;
+}
+
+img.web {
+	position: relative;
+	max-width: 100%;
+	margin: 0 0 2vw;
+}
+
+
+
+/* Gallery Functionality*/
+
+.gallery {
+	position: relative;
+	overflow: visible;
+}
+
+.gallery img {
+	opacity: 0;
+	animation: imgfade 8s infinite;
+}
+.gallery.four_slides img {
+	animation: imgfade4 16s infinite;
+}
+
+.gallery img:nth-child(n+2) {
+	position: absolute;
+	top: 0;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.gallery img:nth-child(1) {
+	z-index: 4;
+}
+.gallery img:nth-child(2) {
+	z-index: 3;
+	animation-delay: 4s;
+}
+.gallery img:nth-child(3) {
+	z-index: 2;
+	animation-delay: 8s;
+}
+.gallery img:nth-child(4) {
+	z-index: 1;
+	animation-delay: 12s;
+}
+
+@keyframes imgfade {
+	0%    { opacity: 0; }
+	12.5% { opacity: 1; }
+	50%   { opacity: 1; }
+	62.5% { opacity: 0; }
+}
+@keyframes imgfade4 {
+	0%     { opacity: 0; }
+	6.25%  { opacity: 1; }
+	25%    { opacity: 1; }
+	31.25% { opacity: 0; }
+}
+
+
+
+/* Responsive Overrides */
+
+@media screen and (max-width: 900px) {
+	html {
+		font-size: 18px;
+	}
+	
+	header,
+	section {
+		padding: 50px 2em;
+	}
+	ul {
+		column-count: 1;
+	}
+}
